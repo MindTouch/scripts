@@ -1,8 +1,11 @@
 ﻿<extension>
-  <title>MindTouch Scratch Library</title>
-  <description>This library contains functions for embedding Scratch applications.</description>
+  <title>MindTouch Scratch Extension</title>
+  <label>Scratch</label>
+  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <description>This extension contains functions for embedding Scratch applications.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Scratch</uri.help>
   <namespace></namespace>
+  
   <function>
     <name>scratch</name>
     <description>Embed a Scratch application</description>

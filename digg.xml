@@ -1,0 +1,56 @@
+﻿<extension>
+  <title>MindTouch Digg Extension</title>
+  <label>Digg</label>
+  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <description>This extension contains functions for using Digg.com.</description>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Digg</uri.help>
+  <namespace>digg</namespace>
+  
+  <function>
+    <name>this</name>
+    <description>Embed the 'Digg It' badge</description>
+    <param name="uri" type="uri" optional="true">uri to digg (default: current page)</param>
+    <param name="compact" type="bool" optional="true">use compact visual style for button (default: false)</param>
+    <param name="bgcolor" type="str" optional="true">css style for background color (default: white)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:if test="args.uri || args.compact || args.bgcolor">
+            <script>
+              <eval:if test="args.uri">digg_url = <eval:js>args.uri</eval:js>;</eval:if>
+              <eval:if test="args.compact">digg_skin = "compact";</eval:if>
+              <eval:if test="args.bgcolor">digg_bgcolor = <eval:js>args.bgcolor</eval:js>;</eval:if>
+            </script>
+          </eval:if>
+          <script src="http://digg.com/tools/diggthis.js" type="text/javascript" />
+        </body>
+      </html>
+    </return>
+  </function>
+  
+  <function>
+    <name>news</name>
+    <description>Embed the 'Digg News' widget</description>
+    <param name="max" type="num" optional="true">max items to display (default: 10)</param>
+    <param name="width" type="num" optional="true">widget width (default: 300)</param>
+    <param name="height" type="num" optional="true">widget height (default: 350)</param>
+    <param name="border" type="bool" optional="true">show border (default: true)</param>
+    <param name="theme" type="str" optional="true">widget color theme (default: "digg-widget-theme1")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:if test="args.width || args.height || !(args.border ?? true) || args.theme">
+            <script>
+              <eval:if test="args.width">digg_width = <eval:js>web.size(args.width)</eval:js>;</eval:if>
+              <eval:if test="args.height">digg_height = <eval:js>web.size(args.height)</eval:js>;</eval:if>
+              <eval:if test="!(args.border ?? true)">digg_border = 0;</eval:if>
+              <eval:if test="args.theme &amp;&amp; (args.theme != '')">digg_theme = <eval:js>args.theme</eval:js>;</eval:if>
+            </script>
+          </eval:if>
+          <script src="http://digg.com/tools/widgetjs" type="text/javascript" />
+          <script eval:src="'http://digg.com/tools/services?type=javascript&amp;callback=diggwb&amp;endPoint=/stories/popular&amp;count=' .. (args.max ?? 10)" type="text/javascript" />  
+        </body>
+      </html>
+    </return>
+  </function>
+</extension>
