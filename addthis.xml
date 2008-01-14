@@ -1,0 +1,26 @@
+<extension>
+  <title>Social Bookmarking Widget</title>
+  <description>Add This Social Bookmarking</description>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Add_This_Social_Bookmarking</uri.help>
+  <namespace>addthis</namespace>
+  <function>
+    <name>bookmark</name>
+    <description>Add Social Bookmarking buttons to a wiki page</description>
+     <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+<body>
+<script type="text/javascript">
+  addthis_url    = location.href;   
+  addthis_title  = document.title;  
+  addthis_pub    = <eval:js>config['publisher']</eval:js>;     
+</script><script type="text/javascript" src="http://s7.addthis.com/js/addthis_widget.php?v=12" ></script>
+        </body>
+        <tail></tail>
+      </html>
+    </return>
+  </function>
+</extension>
+
+
+
+

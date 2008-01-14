@@ -1,0 +1,27 @@
+
+<extension>
+  <title>FeVote</title>
+  <namespace>fevote</namespace>
+  <function>
+    <name>widget</name>
+    <description>Add a Feature Management to your Wiki</description>
+    <param name="category" type="string">Category of Feature Board</param>
+    <param name="width" type="num" optional="true">Width in Percentage </param>
+     <param name="height" type="num" optional="true">Height in Percentage</param>
+     <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+      <body>
+<script type="text/javascript">
+fevote_embed_category=<eval:js>args.category</eval:js>;
+fevote_embed_width=<eval:js>web.size(args.width ?? .999)</eval:js>;
+fevote_embed_height=<eval:js>web.size(args.height ?? 1800)</eval:js>;
+</script>
+<script type="text/javascript" src="http://www.fevote.com/embed/embed.js"></script>
+
+        </body>
+        <tail></tail>
+      </html>
+    </return>
+  </function>
+</extension>
+
