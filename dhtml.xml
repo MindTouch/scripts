@@ -1,0 +1,175 @@
+<extension>
+  <title>MindTouch DHTML Extension</title>
+  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/DHtml</uri.help>
+  <label>DHtml</label>
+  <namespace>dhtml</namespace>
+  <description>This extension contains functions for creating DHTML elements.</description>
+
+  <function>
+    <name>alert</name>
+    <description>Show message in an alert window.</description>
+    <param name="subscribe" type="str" optional="true">subscribe to channel (default: "*")</param>
+    <param name="title" type="str" optional="true">dialog title (default: nil)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { var s = ''; for(var f in m) s += f + ': ' + m[f] + '\n'; alert(<eval:js>args.title ?? 'Alert Box'</eval:js>  + '\nchannel: [' + c + ']\n' + s); });</script>
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>div</name>
+    <description>Show contents in a div.</description>
+    <param name="subscribe" type="str" optional="true">subscribe to channel (default: "default")</param>
+    <param name="field" type="str" optional="true">message field name (default: "text")</param>
+    <param name="html" type="bool" optional="true">allow HTML in field (default: true)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
+            if(DekiWiki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
+              <eval:if test="args.html ?? true">DekiWiki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+              <eval:if test="!(args.html ?? true)">DekiWiki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+          }, null);</script>
+        </head>
+        <body>
+          <div eval:id="@id" />
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>form</name>
+    <description>Show a form with multiple text boxes and a submit button.</description>
+    <param name="inputs" type="list" optional="true">input field (default: [{ label: nil, value: nil, field: nil, hidden: false }])</param>
+    <param name="button" type="str" optional="true">input button (default: "Ok")</param>
+    <param name="length" type="num" optional="true">input length (default: 16)</param>
+    <param name="publish" type="str" optional="true">publish on channel (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">
+            function dhtml_submit_form(id, c) {
+              var m = { };
+              DekiWiki.$(document.getElementById(id)).find('input').each(function() { 
+                if(DekiWiki.hasValue(this.name)) m[this.name] = this.value; 
+              });
+              DekiWiki.publish(c, m);
+            }
+          </script>
+        </head>
+        <body>
+          <table eval:id="@id">
+            <eval:for var="input" in="args.inputs" test="!input.hidden">
+              <tr>
+                <td><eval:expr>input.label ?? '\u00AD'</eval:expr></td>
+                <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
+              </tr>
+            </eval:for>
+            <tr>
+              <td>
+                <eval:for var="input" in="args.inputs" test="input.hidden">
+                  <input eval:name="input.field" eval:value="input.value" type="hidden" />
+                </eval:for>&#xA0;</td>
+              <td align="right"><input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'dhtml_submit_form(' .. json.emit(@id) .. ', ' .. json.emit(args.publish ?? 'default') .. ')'"/></td>
+            </tr>
+          </table>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>inputbox</name>
+    <description>Show a simple text box with a submit button.</description>
+    <param name="label" type="str" optional="true">input label (default: nil)</param>
+    <param name="value" type="str" optional="true">input value (default: nil)</param>
+    <param name="button" type="str" optional="true">input button (default: "Ok")</param>
+    <param name="length" type="num" optional="true">input length (default: 16)</param>
+    <param name="field" type="str" optional="true">message field name (default: "text")</param>
+    <param name="publish" type="str" optional="true">publish on channel (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <nobr><eval:expr>args.label ? args.label .. ' ' : ''</eval:expr><input eval:name="@id" eval:id="@id" eval:value="args.value" eval:size="args.length ?? 16" /> <input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', { ' .. json.emit(args.field ?? 'text') .. ' : document.getElementById(' .. json.emit(@id) .. ').value })'"></input></nobr>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>table</name>
+    <description>Show messages in a table.</description>
+    <param name="columns" type="list">columns description (e.g. [{ label : 'column name', field: 'message field name' }, ...])</param>
+    <param name="subscribe" type="str" optional="true">subscribe to channel (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <!--script type="text/javascript" src="sorttable.js" /-->
+          <script type="text/javascript">
+            function dhtml_table_message_to_row(c, v, f) {
+              var tbody = document.getElementById(f.id);
+              var count = parseInt(tbody.getAttribute('count'));
+              tbody.setAttribute('count', count + 1);
+              var tr = document.createElement('tr');
+              tr.setAttribute('class', (count &amp; 1) ? 'feedroweven' : 'feedrowodd');
+              for(var i in f.columns) {
+                var column = f.columns[i];
+                if(typeof(column) == 'object') {
+                  var td = document.createElement('td');
+                  if(DekiWiki.hasValue(v[column.field])) td.appendChild(document.createTextNode(v[column.field]));
+                  else td.innerHTML = '&amp;nbsp;';
+                  tr.appendChild(td);
+                }
+              }
+              tbody.appendChild(tr);
+            }
+          </script>
+          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, dhtml_table_message_to_row, { id: <eval:js>@id</eval:js>, columns: <eval:js>args.columns</eval:js>});</script>
+        </head>
+        <body>
+          <table border="0" cellpadding="0" cellspacing="0" class="feedtable sortable">
+            <thead>
+              <tr>
+                <eval:for var="column" in="args.columns">
+                  <th><eval:expr>column.label ?? column.field ?? '\u00A0'</eval:expr></th>
+                </eval:for>
+              </tr>
+            </thead>
+            <tbody eval:id="@id" count="0"></tbody>
+          </table>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>republish</name>
+    <description>Republish a message on another channel.</description>
+    <param name="subscribe" type="str">subscribe to channel</param>
+    <param name="publish" type="str">publish on channel</param>
+    <param name="copy" type="map" optional="true">fields to copy (default: all)</param>
+    <param name="add" type="map" optional="true">fields to add (default: none)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">
+            DekiWiki.subscribe(<eval:js>args.subscribe</eval:js>, null, function(c, m, d) {
+              var result = m;
+              if(d.copy) {
+                result = { };
+                for(var key in d.copy) result[key] = m[d.copy[key]];
+              }
+              if(d.add) for(var key in d.add) result[key] = d.add[key];
+              DekiWiki.publish(<eval:js>args.publish</eval:js>, result);
+            }, { copy: <eval:js>args.copy</eval:js>, add: <eval:js>args.add</eval:js> });
+          </script>
+        </head>
+      </html>
+    </return>
+  </function>
+</extension>
