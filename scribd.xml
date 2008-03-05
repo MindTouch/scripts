@@ -1,0 +1,28 @@
+<extension>
+	<title>Scribd</title>
+	<uri.logo>http://scripts.mindtouch.com/logos/scribd-logo.gif</uri.logo>
+	<function>
+		<name>scribd</name>
+		<description>Embed Adobe PDF, Microsoft Office, RTF, and Postscript documents</description>
+		<param name="document" type="uri">URI of Document to view</param>
+		<param name="page" type="num" optional="true">Start page for document to open on (default: 1)</param>
+		<param name="width" type="num" optional="true">viewer width (default: 100%)</param>
+		<param name="height" type="num" optional="true">viewer height (default: 100%)</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<body>
+					<script type="text/javascript" src='http://www.scribd.com/javascripts/view.js' />
+					<div id='embedded_flash' />
+					<script type="text/javascript">
+					  var scribd_doc = scribd.Document.getDocFromUrl(<eval:js>args.document</eval:js>, <eval:js>config['pubid']</eval:js>); 
+					  <eval:if test="args.width">scribd_doc.addParam('width', <eval:js>web.size(args.width)</eval:js>);</eval:if>
+					  <eval:if test="args.height">scribd_doc.addParam('height', <eval:js>web.size(args.height)</eval:js>);</eval:if>
+					  <eval:if test="args.page">scribd_doc.addParam('page', <eval:js>args.page</eval:js>);</eval:if>
+					  scribd_doc.write('embedded_flash');  
+					</script>
+				</body>
+			</html>
+		</return>
+	</function>
+</extension>
+
