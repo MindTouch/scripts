@@ -146,30 +146,4 @@
       </html>
     </return>
   </function>
-
-  <function>
-    <name>republish</name>
-    <description>Republish a message on another channel.</description>
-    <param name="subscribe" type="str">subscribe to channel</param>
-    <param name="publish" type="str">publish on channel</param>
-    <param name="copy" type="map" optional="true">fields to copy (default: all)</param>
-    <param name="add" type="map" optional="true">fields to add (default: none)</param>
-    <return>
-      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <head>
-          <script type="text/javascript">
-            DekiWiki.subscribe(<eval:js>args.subscribe</eval:js>, null, function(c, m, d) {
-              var result = m;
-              if(d.copy) {
-                result = { };
-                for(var key in d.copy) result[key] = m[d.copy[key]];
-              }
-              if(d.add) for(var key in d.add) result[key] = d.add[key];
-              DekiWiki.publish(<eval:js>args.publish</eval:js>, result);
-            }, { copy: <eval:js>args.copy</eval:js>, add: <eval:js>args.add</eval:js> });
-          </script>
-        </head>
-      </html>
-    </return>
-  </function>
 </extension>

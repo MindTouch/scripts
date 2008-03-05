@@ -1,27 +1,25 @@
-
 <extension>
   <title>FeVote</title>
+  <uri.logo>http://wiki.opengarden.org/@api/deki/files/1894/=fevote-logo.gif</uri.logo>
   <namespace>fevote</namespace>
+  
   <function>
     <name>widget</name>
-    <description>Add a Feature Management to your Wiki</description>
-    <param name="category" type="string">Category of Feature Board</param>
-    <param name="width" type="num" optional="true">Width in Percentage </param>
-     <param name="height" type="num" optional="true">Height in Percentage</param>
-     <return>
+    <description>Embed a Feature Management panel to your Wiki</description>
+    <param name="category" type="string">category of feature board</param>
+    <param name="width" type="num" optional="true">panel width (default: 1.0)</param>
+    <param name="height" type="num" optional="true">panel height (default: 1800)</param>
+    <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-      <body>
-<script type="text/javascript">
-fevote_embed_category=<eval:js>args.category</eval:js>;
-fevote_embed_width=<eval:js>web.size(args.width ?? .999)</eval:js>;
-fevote_embed_height=<eval:js>web.size(args.height ?? 1800)</eval:js>;
-</script>
-<script type="text/javascript" src="http://www.fevote.com/embed/embed.js"></script>
-
+        <body>
+          <script type="text/javascript">
+            fevote_embed_category=<eval:js>args.category</eval:js>;
+            fevote_embed_width=<eval:js>web.size(args.width ?? 1.0)</eval:js>;
+            fevote_embed_height=<eval:js>web.size(args.height ?? 1800)</eval:js>;
+          </script>
+          <script type="text/javascript" src="http://www.fevote.com/embed/embed.js"/>
         </body>
-        <tail></tail>
       </html>
     </return>
   </function>
 </extension>
-
