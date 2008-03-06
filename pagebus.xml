@@ -53,4 +53,20 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>publish</name>
+    <description>Publish a message on a channel.</description>
+    <param name="channel" type="str">channel to publish mesage on</param>
+    <param name="message" type="map">message to send</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <tail>
+          <script type="text/javascript">
+            DekiWiki.publish(<eval:js>args.channel</eval:js>, <eval:js>args.message</eval:js>);
+          </script>
+        </tail>
+      </html>
+    </return>
+  </function>
 </extension>
