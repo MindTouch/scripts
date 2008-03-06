@@ -1,0 +1,63 @@
+﻿<extension>
+  <title>MindTouch Twitter Extension</title>
+  <label>Twitter</label>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <description>This extension contains functions for embedding Twitter feeds.</description>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Twitter</uri.help>
+  <namespace>twitter</namespace>
+  
+  <function>
+    <name>all</name>
+    <description>Embed Twitter feed of user and friends</description>
+    <param name="name" type="str">twitter user name</param>
+    <param name="width" type="num" optional="true">control width (default: 200)</param>
+    <param name="height" type="num" optional="true">control height (default: 400)</param>
+    <param name="oddbubblecolor" type="str" optional="true">color for bubbles on odd rows (default: "0xFFFFCE")</param>
+    <param name="evenbubblecolor" type="str" optional="true">color for bubbles on even rows (default: "0xFFDAAA")</param>
+    <param name="oddtextcolor" type="str" optional="true">text color for odd rows(default: "0x4A396D")</param>
+    <param name="eventextcolor" type="str" optional="true">text color for event rows (default: "0xBA0909")</param>
+    <param name="backgroundcolor" type="str" optional="true">background color (default: "0x111B1C")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <embed src="http://static.twitter.com/flash/twitter_timeline_badge.swf" 
+                 eval:flashvars="'user_id=' .. string.match(web.text('http://twitter.com/' .. args.name, '//_:link[@type=\'application/rss+xml\']/@href' } ?? ''), '.*/(\\d+).rss') .. '&amp;color1=' .. (args.oddbubblecolor ?? '0xFFFFCE') .. '&amp;color2=' .. (args.evenbubblecolor ?? '0xFFDAAA') .. '&amp;textColor1=' .. (args.oddtextcolor ?? '0x4A396D') .. '&amp;textColor2=' .. (args.eventextcolor ?? '0xBA0909' ) .. '&amp;backgroundColor=' .. (args.backgroundcolor ?? '0x111B1C') .. '&amp;textSize=' .. (args.textsize ?? 10)" 
+                 eval:width="web.size(args.width ?? 200)" 
+                 eval:height="web.size(args.height ?? 400)" 
+                 quality="high" 
+                 name="twitter_timeline_badge" 
+                 align="middle" 
+                 type="application/x-shockwave-flash" 
+                 allowScriptAccess="always" 
+                 pluginspage="http://www.adobe.com/go/getflashplayer" />
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>current</name>
+    <description>Show latest Twitter entry from user</description>
+    <param name="name" type="str">twitter user name</param>
+    <param name="width" type="num" optional="true">control width (default: 176)</param>
+    <param name="height" type="num" optional="true">control height (default: 176)</param>
+    <param name="backgroundcolor" type="str" optional="true">background color (default: "0x111B1C")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <embed src="http://twitter.com/flash/twitter_badge.swf"
+                 eval:flashvars="'id=' .. string.match(web.text('http://twitter.com/' .. args.name, '//_:link[@type=\'application/rss+xml\']/@href' ?? ''), '.*/(\\d+).rss') .. '&amp;type=user&amp;color1=' .. (args.backgroundcolor ?? '0x111B1C')"
+                 quality="high"
+                 eval:width="web.size(args.width ?? 176)"
+                 eval:height="web.size(args.height ?? 176)"
+                 name="twitter_badge"
+                 align="middle"
+                 allowScriptAccess="always"
+                 wmode="transparent"
+                 type="application/x-shockwave-flash"
+                 pluginspage="http://www.macromedia.com/go/getflashplayer" />
+        </body>
+      </html>
+    </return>
+  </function>
+</extension>
