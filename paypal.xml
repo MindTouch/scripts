@@ -9,7 +9,7 @@
 
   <config>
     <param name="price/{product-name}" type="num">Set the price for the product with name 'product-name'.</param>
-    <param name="email" type="str">Email address of business account.</param>
+    <param name="email" type="str">The email for your PayPal account.</param>
   </config>
   
 	<function>
