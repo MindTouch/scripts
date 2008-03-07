@@ -7,7 +7,7 @@
     <name>widget</name>
     <description>Embed a Feature Management panel to your Wiki</description>
     <param name="category" type="string">category of feature board</param>
-    <param name="width" type="num" optional="true">panel width (default: 1.0)</param>
+    <param name="width" type="num" optional="true">panel width (default: .99)</param>
     <param name="height" type="num" optional="true">panel height (default: 1800)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
