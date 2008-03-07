@@ -10,15 +10,15 @@
   
   <function>
     <name>all</name>
-    <description>Embed Twitter feed of user and friends</description>
-    <param name="name" type="str">Twitter user name</param>
-    <param name="width" type="num" optional="true">Control width (default: 200)</param>
-    <param name="height" type="num" optional="true">Control height (default: 400)</param>
-    <param name="oddbubblecolor" type="str" optional="true">Color for bubbles on odd rows (default: "0xFFFFCE")</param>
-    <param name="evenbubblecolor" type="str" optional="true">Color for bubbles on even rows (default: "0xFFDAAA")</param>
-    <param name="oddtextcolor" type="str" optional="true">Text color for odd rows(default: "0x4A396D")</param>
-    <param name="eventextcolor" type="str" optional="true">Text color for event rows (default: "0xBA0909")</param>
-    <param name="backgroundcolor" type="str" optional="true">Background color (default: "0x111B1C")</param>
+    <description>Embed Twitter feed of user and friends.</description>
+    <param name="name" type="str">Twitter user name.</param>
+    <param name="width" type="num" optional="true">Control width. (default: 200)</param>
+    <param name="height" type="num" optional="true">Control height. (default: 400)</param>
+    <param name="oddbubblecolor" type="str" optional="true">Color for bubbles on odd rows. (default: "0xFFFFCE")</param>
+    <param name="evenbubblecolor" type="str" optional="true">Color for bubbles on even rows. (default: "0xFFDAAA")</param>
+    <param name="oddtextcolor" type="str" optional="true">Text color for odd rows. (default: "0x4A396D")</param>
+    <param name="eventextcolor" type="str" optional="true">Text color for event rows. (default: "0xBA0909")</param>
+    <param name="backgroundcolor" type="str" optional="true">Background color. (default: "0x111B1C")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
@@ -39,11 +39,11 @@
 
   <function>
     <name>current</name>
-    <description>Show latest Twitter entry from user</description>
-    <param name="name" type="str">Twitter user name</param>
-    <param name="width" type="num" optional="true">Control width (default: 176)</param>
-    <param name="height" type="num" optional="true">Control height (default: 176)</param>
-    <param name="backgroundcolor" type="str" optional="true">Background color (default: "0x111B1C")</param>
+    <description>Show latest Twitter entry from user.</description>
+    <param name="name" type="str">Twitter user name.</param>
+    <param name="width" type="num" optional="true">Control width. (default: 176)</param>
+    <param name="height" type="num" optional="true">Control height. (default: 176)</param>
+    <param name="backgroundcolor" type="str" optional="true">Background color. (default: "0x111B1C")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>

@@ -1,19 +1,19 @@
 ﻿<extension>
   <title>MindTouch Gabbly Extension</title>
   <label>Gabbly</label>
-  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Gabbly widgets.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Gabbly</uri.help>
   <namespace>gabbly</namespace>
   
   <function>
     <name>chat</name>
-    <description>Embed Gabbly chat widget</description>
-    <param name="room" type="str" optional="true">chat room name (default: "dekiwiki")</param>
-    <param name="username" type="str" optional="true">user name (default: automatic)</param>
-    <param name="width" type="num" optional="true">width of chat widget (default: 425)</param>
-    <param name="height" type="num" optional="true">height of chat widget (default: 350)</param>
-    <param name="logo" type="uri" optional="true">logo for chat room (default: gabbly logo)</param>
+    <description>Embed Gabbly chat widget.</description>
+    <param name="room" type="str" optional="true">Chat room name. (default: "dekiwiki")</param>
+    <param name="username" type="str" optional="true">User name. (default: automatic)</param>
+    <param name="width" type="num" optional="true">Width of chat widget. (default: 425)</param>
+    <param name="height" type="num" optional="true">Height of chat widget. (default: 350)</param>
+    <param name="logo" type="uri" optional="true">Logo for chat room. (default: gabbly logo)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>

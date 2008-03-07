@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>MindTouch Digg Extension</title>
   <label>Digg</label>
-  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for using Digg.com.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Digg</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/digg-logo.png</uri.logo>
@@ -9,10 +9,10 @@
   
   <function>
     <name>this</name>
-    <description>Embed the 'Digg It' badge</description>
-    <param name="uri" type="uri" optional="true">uri to digg (default: current page)</param>
-    <param name="compact" type="bool" optional="true">use compact visual style for button (default: false)</param>
-    <param name="bgcolor" type="str" optional="true">css style for background color (default: white)</param>
+    <description>Embed the 'Digg It' badge.</description>
+    <param name="uri" type="uri" optional="true">URI to for the Digg story. (default: current page)</param>
+    <param name="compact" type="bool" optional="true">Use compact visual style for button. (default: false)</param>
+    <param name="bgcolor" type="str" optional="true">CSS style for background color. (default: white)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
@@ -31,12 +31,12 @@
   
   <function>
     <name>news</name>
-    <description>Embed the 'Digg News' widget</description>
-    <param name="max" type="num" optional="true">max items to display (default: 10)</param>
-    <param name="width" type="num" optional="true">widget width (default: 300)</param>
-    <param name="height" type="num" optional="true">widget height (default: 350)</param>
-    <param name="border" type="bool" optional="true">show border (default: true)</param>
-    <param name="theme" type="str" optional="true">widget color theme (default: "digg-widget-theme1")</param>
+    <description>Embed the 'Digg News' widget.</description>
+    <param name="max" type="num" optional="true">Max items to display. (default: 10)</param>
+    <param name="width" type="num" optional="true">Widget width. (default: 300)</param>
+    <param name="height" type="num" optional="true">Widget height. (default: 350)</param>
+    <param name="border" type="bool" optional="true">Show border. (default: true)</param>
+    <param name="theme" type="str" optional="true">Widget color theme. (default: "digg-widget-theme1")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>

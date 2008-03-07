@@ -1,6 +1,6 @@
 <extension>
   <title>MindTouch DHTML Extension</title>
-  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/DHtml</uri.help>
   <label>DHtml</label>
   <namespace>dhtml</namespace>
@@ -9,8 +9,8 @@
   <function>
     <name>alert</name>
     <description>Show message in an alert window.</description>
-    <param name="subscribe" type="str" optional="true">Subscribe to channel (default: "*")</param>
-    <param name="title" type="str" optional="true">Dialog title (default: nil)</param>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "*")</param>
+    <param name="title" type="str" optional="true">Dialog title. (default: nil)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -23,9 +23,9 @@
   <function>
     <name>div</name>
     <description>Show contents in a div.</description>
-    <param name="subscribe" type="str" optional="true">Subscribe to channel (default: "default")</param>
-    <param name="field" type="str" optional="true">Message field name (default: "text")</param>
-    <param name="html" type="bool" optional="true">Allow HTML in field (default: true)</param>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "default")</param>
+    <param name="field" type="str" optional="true">Message field name. (default: "text")</param>
+    <param name="html" type="bool" optional="true">Allow HTML in field. (default: true)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -45,10 +45,10 @@
   <function>
     <name>form</name>
     <description>Show a form with multiple text boxes and a submit button.</description>
-    <param name="inputs" type="list" optional="true">Input field (default: [{ label: nil, value: nil, field: nil, hidden: false }])</param>
-    <param name="button" type="str" optional="true">Input button (default: "Ok")</param>
-    <param name="length" type="num" optional="true">Input length (default: 16)</param>
-    <param name="publish" type="str" optional="true">Publish on channel (default: "default")</param>
+    <param name="inputs" type="list" optional="true">Input field. (default: [{ label: nil, value: nil, field: nil, hidden: false }])</param>
+    <param name="button" type="str" optional="true">Input button. (default: "Ok")</param>
+    <param name="length" type="num" optional="true">Input length. (default: 16)</param>
+    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -86,12 +86,12 @@
   <function>
     <name>inputbox</name>
     <description>Show a simple text box with a submit button.</description>
-    <param name="label" type="str" optional="true">Input label (default: nil)</param>
-    <param name="value" type="str" optional="true">Input value (default: nil)</param>
-    <param name="button" type="str" optional="true">Input button (default: "Ok")</param>
-    <param name="length" type="num" optional="true">Input length (default: 16)</param>
-    <param name="field" type="str" optional="true">Message field name (default: "text")</param>
-    <param name="publish" type="str" optional="true">Publish on channel (default: "default")</param>
+    <param name="label" type="str" optional="true">Input label. (default: nil)</param>
+    <param name="value" type="str" optional="true">Input value. (default: nil)</param>
+    <param name="button" type="str" optional="true">Input button. (default: "Ok")</param>
+    <param name="length" type="num" optional="true">Input length. (default: 16)</param>
+    <param name="field" type="str" optional="true">Message field name. (default: "text")</param>
+    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
@@ -104,8 +104,8 @@
   <function>
     <name>table</name>
     <description>Show messages in a table.</description>
-    <param name="columns" type="list">Columns description (e.g. [{ label : 'column name', field: 'message field name' }, ...])</param>
-    <param name="subscribe" type="str" optional="true">Subscribe to channel (default: "default")</param>
+    <param name="columns" type="list">Columns description. (e.g. [{ label : 'column name', field: 'message field name' }, ...])</param>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>

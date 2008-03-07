@@ -1,19 +1,20 @@
 <extension>
-  <title>JS-Kit</title>
-  <description>This allows you to Add Star Rating to a Wiki Page.</description>
-  <uri.help></uri.help>
+  <title>MindTouch JS-Kit Extension</title>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
+  <description>This extension allows you to a Rating widget to your wiki.</description>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/JS_Kit</uri.help>
+  <label>JS-Kit</label>
   <namespace>jskit</namespace>
-<function>
+  
+  <function>
     <name>rating</name>
-    <description>This allows you to Add Star Rating to a Wiki Page.</description>
+    <description>This function embeds a Rating widget.</description>
     <return>
       <html>
-     
         <body>
-	<div class="js-kit-rating" title="" permalink=""></div>
-<script src="http://js-kit.com/ratings.js"></script>
-         </body>
-       <tail></tail>
+          <div class="js-kit-rating" title="" permalink="" />
+          <script src="http://js-kit.com/ratings.js" />
+        </body>
       </html>
     </return>
   </function>

@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>MindTouch AccuWeather Extension</title>
   <lable>AccuWeather</lable>
-  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding AccuWeather widgets.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/AccuWeather</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/accuweather-logo.png</uri.logo>
@@ -9,9 +9,9 @@
   
   <function>
     <name>weather</name>
-    <description>Embed the AccuWeather weather widget</description>
-    <param name="zipcode" type="str" optional="true">Zipcode for location (default: "92101")</param>
-    <param name="celsius" type="bool" optional="true">Show temperature in degrees Celsius (default: false) </param>
+    <description>Embed the AccuWeather weather widget.</description>
+    <param name="zipcode" type="str" optional="true">Zipcode for location. (default: "92101")</param>
+    <param name="celsius" type="bool" optional="true">Show temperature in degrees Celsius. (default: false)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>

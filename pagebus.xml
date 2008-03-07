@@ -9,10 +9,10 @@
   <function>
     <name>republish</name>
     <description>Republish messages to another channel.</description>
-    <param name="subscribe" type="str">subscribe to channel</param>
-    <param name="publish" type="str">publish on channel</param>
-    <param name="copy" type="map" optional="true">fields to copy (default: all)</param>
-    <param name="add" type="map" optional="true">fields to add (default: none)</param>
+    <param name="subscribe" type="str">Subscribe to channel.</param>
+    <param name="publish" type="str">Publish on channel.</param>
+    <param name="copy" type="map" optional="true">Fields to copy. (default: all)</param>
+    <param name="add" type="map" optional="true">Fields to add. (default: none)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -35,10 +35,10 @@
   <function>
     <name>filter</name>
     <description>Filter messages before copying them to another channel.</description>
-    <param name="subscribe" type="str">subscribe to channel</param>
-    <param name="publish" type="str">publish on channel</param>
-    <param name="field" type="str">field to test</param>
-    <param name="regex" type="str">regular expression to use for test</param>
+    <param name="subscribe" type="str">Subscribe to channel.</param>
+    <param name="publish" type="str">Publish on channel.</param>
+    <param name="field" type="str">Field to test.</param>
+    <param name="regex" type="str">Regular expression to use for test.</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -57,8 +57,8 @@
   <function>
     <name>publish</name>
     <description>Publish a message on a channel.</description>
-    <param name="channel" type="str">channel to publish mesage on</param>
-    <param name="message" type="map">message to send</param>
+    <param name="channel" type="str">Channel to publish mesage on.</param>
+    <param name="message" type="map">Message to send.</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <tail>

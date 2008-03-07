@@ -1,17 +1,16 @@
 ﻿<extension>
   <title>MindTouch Scratch Extension</title>
   <label>Scratch</label>
-  <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Scratch applications.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Scratch</uri.help>
-  <namespace></namespace>
   
   <function>
     <name>scratch</name>
-    <description>Embed a Scratch application</description>
-    <param name="id" type="str">application User/ID</param>
-    <param name="width" type="num" optional="true">application width (default: 482)</param>
-    <param name="height" type="num" optional="true">application height (default: 387)</param>
+    <description>Embed a Scratch application.</description>
+    <param name="id" type="str">Application User/ID.</param>
+    <param name="width" type="num" optional="true">Application width. (default: 482)</param>
+    <param name="height" type="num" optional="true">Application height. (default: 387)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>

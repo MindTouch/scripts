@@ -1,16 +1,22 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
 <extension>
-	<title>Paypal</title>
-	<description>Add a PayPal buttons to your wiki</description>
+	<title>MindTouch PayPal Extension</title>
+  <label>PayPal</label>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <description>Add a PayPal button to your wiki.</description>
 	<uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Paypal</uri.help>
-	 <uri.logo>http://scripts.mindtouch.com/logos/paypal-logo.gif</uri.logo> 
+	<uri.logo>http://scripts.mindtouch.com/logos/paypal-logo.gif</uri.logo> 
 	<namespace>paypal</namespace>
+
+  <config>
+    <param name="price/{product-name}" type="num">Set the price for the product with name 'product-name'.</param>
+    <param name="email" type="str">Email address of business account.</param>
+  </config>
+  
 	<function>
 		<name>buynow</name>
 		<description>Easily add a Buy Now button to your wiki page</description>
-		<param name="name" type="string">Name of Product to Sell</param>
-		<param name="image" type="uri" optional="true">Custom button image</param>
+		<param name="name" type="str">Name of product to sell.</param>
+		<param name="image" type="uri" optional="true">Custom button image.</param>
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<body>
@@ -33,11 +39,12 @@
 			</html>
 		</return>
 	</function>
+  
 	<function>
 		<name>donate</name>
 		<description>Easily add a Donation button to your wiki page</description>
-		<param name="name" type="string">Name of Product to Sell</param>
-		<param name="image" type="uri" optional="true">Custom button image</param>
+		<param name="name" type="str">Name of product to sell.</param>
+		<param name="image" type="uri" optional="true">Custom button image.</param>
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<body>
