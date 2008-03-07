@@ -11,7 +11,7 @@
     <name>weather</name>
     <description>Embed the AccuWeather weather widget</description>
     <param name="zipcode" type="str" optional="true">Zipcode for location (default: "92101")</param>
-    <param name="celsius" type="str" optional="true">Show temperature in degrees Celsius (default: false) </param>
+    <param name="celsius" type="bool" optional="true">Show temperature in degrees Celsius (default: false) </param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
