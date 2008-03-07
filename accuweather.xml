@@ -4,7 +4,7 @@
   <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding AccuWeather widgets.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/AccuWeather</uri.help>
-  <uri.logo>http://wiki.opengarden.org/File:Deki_Wiki/Extensions/AccuWeather/accuweather-logo.png</uri.logo>
+  <uri.logo>http://scripts.mindtouch.com/logos/accuweather-logo.png</uri.logo>
   <namespace>accuweather</namespace>
   
   <function>

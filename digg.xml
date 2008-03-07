@@ -4,7 +4,7 @@
   <copyright>Copyright (c) 2007 MindTouch, Inc.</copyright>
   <description>This extension contains functions for using Digg.com.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Digg</uri.help>
-  <uri.logo>http://wiki.opengarden.org/File:Deki_Wiki/Extensions/Digg/digg-logo.png</uri.logo>
+  <uri.logo>http://scripts.mindtouch.com/logos/digg-logo.png</uri.logo>
   <namespace>digg</namespace>
   
   <function>
