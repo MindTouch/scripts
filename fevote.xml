@@ -1,6 +1,6 @@
 <extension>
   <title>FeVote</title>
-  <uri.logo>http://wiki.opengarden.org/@api/deki/files/1894/=fevote-logo.gif</uri.logo>
+  <uri.logo>http://scripts.mindtouch.com/logos/fevote-logo.gif</uri.logo>
   <namespace>fevote</namespace>
   
   <function>

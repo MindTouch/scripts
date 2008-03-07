@@ -1,0 +1,20 @@
+<extension>
+  <title>JS-Kit</title>
+  <description>This allows you to Add Star Rating to a Wiki Page.</description>
+  <uri.help></uri.help>
+  <namespace>jskit</namespace>
+<function>
+    <name>rating</name>
+    <description>This allows you to Add Star Rating to a Wiki Page.</description>
+    <return>
+      <html>
+     
+        <body>
+	<div class="js-kit-rating" title="" permalink=""></div>
+<script src="http://js-kit.com/ratings.js"></script>
+         </body>
+       <tail></tail>
+      </html>
+    </return>
+  </function>
+</extension>
