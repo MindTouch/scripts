@@ -1,6 +1,11 @@
 <extension>
 	<title>Scribd</title>
 	<uri.logo>http://scripts.mindtouch.com/logos/scribd-logo.gif</uri.logo>
+  
+	<config>
+		<param name="pubid" type="str">Publisher ID. Sign up for free at http://www.scribd.com/platform/start.</param>
+	</config>
+  
 	<function>
 		<name>scribd</name>
 		<description>Embed Adobe PDF, Microsoft Office, RTF, and Postscript documents</description>
