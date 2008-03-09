@@ -38,7 +38,7 @@
     <param name="subscribe" type="str">Subscribe to channel.</param>
     <param name="publish" type="str">Publish on channel.</param>
     <param name="field" type="str">Field to test.</param>
-    <param name="regex" type="str">Regular expression to use for test.</param>
+    <param name="pattern" type="str">Regular expression pattern to use for test.</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -47,7 +47,7 @@
               if(DekiWiki.hasValue(m[<eval:js>args.field</eval:js>]) &amp;&amp; d.regex.test(m[<eval:js>args.field</eval:js>])) {
                 DekiWiki.publish(<eval:js>args.publish</eval:js>, m);
               }
-            }, { regex: new RegExp(<eval:js>args.regex</eval:js>) });
+            }, { regex: new RegExp(<eval:js>args.pattern</eval:js>) });
           </script>
         </head>
       </html>
