@@ -7,20 +7,6 @@
   <description>This extension contains functions for creating DHTML elements.</description>
 
   <function>
-    <name>alert</name>
-    <description>Show message in an alert window.</description>
-    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "*")</param>
-    <param name="title" type="str" optional="true">Dialog title. (default: nil)</param>
-    <return>
-      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <head>
-          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { var s = ''; for(var f in m) s += f + ': ' + m[f] + '\n'; alert(<eval:js>args.title ?? 'Alert Box'</eval:js>  + '\nchannel: [' + c + ']\n' + s); });</script>
-        </head>
-      </html>
-    </return>
-  </function>
-
-  <function>
     <name>div</name>
     <description>Show contents in a div.</description>
     <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "default")</param>
@@ -142,6 +128,53 @@
             </thead>
             <tbody eval:id="@id" count="0"></tbody>
           </table>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>link</name>
+    <description>Show a link that publishes a message on a channel when clicked.</description>
+    <param name="text" type="str">Text shown in link.</param>
+    <param name="message" type="map">Message to publish on channel.</param>
+    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <a rel="script" eval:href="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"><eval:expr>args.text</eval:expr></a>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>button</name>
+    <description>Show a button that publishes a message on a channel when clicked.</description>
+    <param name="text" type="str">Text shown in button.</param>
+    <param name="message" type="map">Message to publish on channel.</param>
+    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <input type="button" eval:value="args.text"  eval:onclick="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"/>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>dropdown</name>
+    <description>Show a dropdown list that publishes a message when the user changes the selection.</description>
+    <param name="values" type="list">Text strings to show in the dropdown list.</param>
+    <param name="messages" type="map">Messages corresponding to the text shown in the dropdown list.</param>
+    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <select eval:onchange="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.messages) .. '[this.selectedIndex])'">
+            <eval:for var="value" in="args.values"><option><eval:expr>value</eval:expr></option></eval:for>
+          </select>
         </body>
       </html>
     </return>

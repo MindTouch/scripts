@@ -7,6 +7,22 @@
   <description>This extension contains functions for interacting with the PageBus.</description>
 
   <function>
+    <name>alert</name>
+    <description>Show messages on a channel in an alert window.</description>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "*")</param>
+    <param name="title" type="str" optional="true">Dialog title. (default: nil)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">
+            DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { var s = ''; for(var f in m) s += f + ': ' + m[f] + '\n'; alert(<eval:js>args.title ?? 'Alert Box'</eval:js>  + '\nchannel: [' + c + ']\n' + s); });
+          </script>
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
     <name>republish</name>
     <description>Republish messages to another channel.</description>
     <param name="subscribe" type="str">Subscribe to channel.</param>
