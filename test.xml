@@ -1,0 +1,97 @@
+<extension>
+  <title>MindTouch Test DekiScript XML Extension</title>
+  <label>Test</label>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <description>This extension contains functions for testing DekiScript XML constructs.</description>
+  <namespace>test</namespace>
+
+  <requires host="Deki Wiki 1.9.1" />
+
+  <function>
+    <name>define</name>
+    <description>Test 'define' construct.</description>
+    <param name="value" type="any">Value to show in 'define' construct.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:define var="x" value="[1, args.value, 2]">
+            <eval:expr value="x[0]" />
+            <br />
+            <eval:expr value="x[1]" />
+            <br />
+            <eval:expr value="x[2]" />
+            <br />
+          </eval:define>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>expr</name>
+    <description>Test 'expr' construct.</description>
+    <param name="value" type="any">Value to show in 'expr' construct.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:expr value="args.value" />
+          <br />
+          <eval:expr>args.value</eval:expr>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>js</name>
+    <description>Test 'js' construct.</description>
+    <param name="value" type="any">Value to show in 'js' construct.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:js value="args.value" />
+          <br />
+          <eval:js>args.value</eval:js>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>ifelse</name>
+    <description>Test 'if-elseif-else' construct.</description>
+    <param name="value" type="num">Value for test [1 = if, 2 = elseif, 3 = else].</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:if test="args.value == 1">If => <eval:expr value="args.value" /></eval:if>
+          <eval:elseif test="args.value == 2">ElseIf => <eval:expr value="args.value" /></eval:elseif>
+          <eval:else>Else => <eval:expr value="args.value" /></eval:else>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>foreach</name>
+    <description>Test 'for' construct.</description>
+    <param name="value" type="any">Map or list of values.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:if test="args.value is list">
+            <eval:foreach var="x" in="args.value">
+              <eval:expr value="x" />
+            </eval:foreach>
+          </eval:if>
+          <eval:elseif test="args.value is map">
+            <eval:foreach var="x" in="args.value">
+              <eval:expr value="x" /> = <eval:expr value="args.value[x]" /><br />
+            </eval:foreach>
+          </eval:elseif>
+          <eval:else>INVALID ARG TYPE</eval:else>
+        </body>
+      </html>
+    </return>
+  </function>
+</extension>
