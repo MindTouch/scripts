@@ -8,21 +8,26 @@
   <requires host="Deki Wiki 1.9.1" />
 
   <function>
-    <name>define</name>
-    <description>Test 'define' construct.</description>
-    <param name="value" type="any">Value to show in 'define' construct.</param>
+    <name>bodies</name>
+    <description>Test multiple bodies.</description>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <body>
-          <eval:define var="x" value="[1, args.value, 2]">
-            <eval:expr value="x[0]" />
-            <br />
-            <eval:expr value="x[1]" />
-            <br />
-            <eval:expr value="x[2]" />
-            <br />
-          </eval:define>
-        </body>
+        <body target="first">First Body</body>
+        <body>Main Body</body>
+        <body target="last">Last Body</body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>metatags</name>
+    <description>Test meta tags in 'head' element.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <meta name="description" content="Free Web tutorials on HTML, CSS, XML, and XHTML" />
+          <meta name="keywords" content="HTML, DHTML, CSS, XML, XHTML, JavaScript, VBScript" />
+        </head>
       </html>
     </return>
   </function>
