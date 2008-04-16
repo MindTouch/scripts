@@ -39,9 +39,9 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          First: <eval:expr value="args.value" />
+          <eval:expr value="args.value" />
           <br />
-          Second: <eval:expr>args.value</eval:expr>
+          <eval:expr>args.value</eval:expr>
         </body>
       </html>
     </return>
@@ -54,9 +54,9 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          First: <eval:js value="args.value" />
+          <eval:js value="args.value" />
           <br />
-          Second: <eval:js>args.value</eval:js>
+          <eval:js>args.value</eval:js>
         </body>
       </html>
     </return>
@@ -98,11 +98,5 @@
         </body>
       </html>
     </return>
-  </function>
-
-  <function>
-    <name>nested</name>
-    <description>Test calling another function.</description>
-    <return type="xml">expr("Hello World!")</return>
   </function>
 </extension>
