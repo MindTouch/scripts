@@ -99,4 +99,24 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>nested</name>
+    <description>Test calling another function.</description>
+    <return type="xml">expr("Hello World!")</return>
+  </function>
+
+  <function>
+    <name>implicit</name>
+    <description>Test implicit arguments.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          Site: <eval:expr>site</eval:expr><br />
+          Page: <eval:expr>page</eval:expr><br />
+          User: <eval:expr>user</eval:expr><br />
+        </body>
+      </html>
+    </return>
+  </function>
 </extension>
