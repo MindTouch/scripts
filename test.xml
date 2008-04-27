@@ -119,4 +119,50 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>div</name>
+    <description>Test XML argument.</description>
+    <param name="value" type="xml">XML value.</param>
+    <param name="float" type="str" optional="true">Where to float the element. (default: "right")</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <div eval:style="'float:' .. (float ?? 'right') .. ';'">
+            <eval:expr value="value" />
+          </div>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>makeorderedlist</name>
+    <description>Emit elements from a list to an ordered list.</description>
+    <param name="value" type="xml">XML value.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <ol>
+            <eval:foreach in="value['li']">
+              <eval:expr value="$" />
+            </eval:foreach>
+          </ol>
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>testconvert</name>
+    <description>Emit elements from a list to an ordered list.</description>
+    <param name="value" type="num">A number parameter.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:expr value="typeof value" />
+        </body>
+      </html>
+    </return>
+  </function>
 </extension>
