@@ -167,7 +167,7 @@
     <name>dropdown</name>
     <description>Show a dropdown list that publishes a message when the user changes the selection.</description>
     <param name="values" type="list">Text strings to show in the dropdown list.</param>
-    <param name="messages" type="map">Messages corresponding to the text shown in the dropdown list.</param>
+    <param name="messages" type="list">Messages corresponding to the text shown in the dropdown list.</param>
     <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">

@@ -106,6 +106,21 @@
     <return type="xml">expr("Hello World!")</return>
   </function>
 
+
+  <function>
+    <name>define</name>
+    <description>Test 'define' construct.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <eval:define value="1 + 2">
+            <eval:expr value="$" />
+          </eval:define>
+        </body>
+      </html>
+    </return>
+  </function>
+
   <function>
     <name>implicit</name>
     <description>Test implicit arguments.</description>
