@@ -99,13 +99,19 @@
       </html>
     </return>
   </function>
+  
+  <function>
+    <name>internal</name>
+    <access>internal</access>
+    <description>Test defining an internal.</description>
+    <return type="str">"Hello World!"</return>
+  </function>
 
   <function>
     <name>nested</name>
     <description>Test calling another function.</description>
-    <return type="xml">expr("Hello World!")</return>
+    <return type="str">internal()</return>
   </function>
-
 
   <function>
     <name>define</name>
