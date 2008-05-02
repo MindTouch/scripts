@@ -86,12 +86,12 @@
         <body>
           <eval:if test="args.value is list">
             <eval:foreach var="x" in="args.value">
-              <eval:expr value="x" />
+              <eval:expr value="x" /><br />
             </eval:foreach>
           </eval:if>
           <eval:elseif test="args.value is map">
             <eval:foreach var="x" in="args.value">
-              <eval:expr value="x" /> = <eval:expr value="args.value[x]" /><br />
+              <eval:expr value="x.key" /> = <eval:expr value="x.value" /><br />
             </eval:foreach>
           </eval:elseif>
           <eval:else>INVALID ARG TYPE</eval:else>
