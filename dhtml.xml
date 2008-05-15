@@ -29,6 +29,28 @@
   </function>
 
   <function>
+    <name>span</name>
+    <description>Show contents in a span.</description>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "default")</param>
+    <param name="field" type="str" optional="true">Message field name. (default: "text")</param>
+    <param name="html" type="bool" optional="true">Allow HTML in field. (default: true)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
+            if(DekiWiki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
+              <eval:if test="args.html ?? true">DekiWiki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+              <eval:if test="!(args.html ?? true)">DekiWiki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+          }, null);</script>
+        </head>
+        <body>
+          <span eval:id="@id" />
+        </body>
+      </html>
+    </return>
+  </function>
+
+  <function>
     <name>form</name>
     <description>Show a form with multiple text boxes and a submit button.</description>
     <param name="inputs" type="list" optional="true">Input field. (default: [{ label: nil, value: nil, field: nil, hidden: false }])</param>
