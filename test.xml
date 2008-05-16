@@ -8,6 +8,23 @@
   <requires host="Deki Wiki 1.9.1" />
 
   <function>
+    <name>style</name>
+    <description>Test style elemetn in head.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <style type="text/css">
+            body {background-color: yellow}
+            h1 {background-color: #00ff00}
+            h2 {background-color: transparent}
+            p {background-color: rgb(250,0,255)}
+          </style>
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
     <name>bodies</name>
     <description>Test multiple bodies.</description>
     <return>
@@ -78,19 +95,19 @@
   </function>
 
   <function>
-    <name>foreach</name>
+    <name>forloop</name>
     <description>Test 'for' construct.</description>
     <param name="value" type="any">Map or list of values.</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:if test="args.value is list">
-            <eval:foreach var="x" in="args.value">
+          <eval:if test="value is list">
+            <eval:foreach var="x" in="value">
               <eval:expr value="x" /><br />
             </eval:foreach>
           </eval:if>
-          <eval:elseif test="args.value is map">
-            <eval:foreach var="x" in="args.value">
+          <eval:elseif test="value is map">
+            <eval:foreach var="x" in="map.keyvalues(value)">
               <eval:expr value="x.key" /> = <eval:expr value="x.value" /><br />
             </eval:foreach>
           </eval:elseif>
