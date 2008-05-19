@@ -1,0 +1,36 @@
+<extension>
+	<title>MindTouch FlowPlayer Extension</title>
+	<label>FlowPlayer</label>
+	<copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+	<description>This extension allows to view FLV media in your wiki.</description>
+	<uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/FlowPlayer</uri.help>
+	
+	<function>
+		<name>flv</name>
+		<description>Embed FLV Player.</description>
+		<param name="source" type="uri">Media uri.</param>
+		<param name="width" type="num" optional="true">Player width. (default: 425)</param>
+		<param name="height" type="num" optional="true">Player height. (default: 350)</param>
+		<param name="start" type="bool" optional="true">Auto-start player. (default: false)</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<head><script type="text/javascript" src="http://scripts.mindtouch.com/res/flashembed.min.js" /></head>
+				<body><div eval:id="@id" /></body>
+				<tail>
+					flashembed(
+						<eval:js value="@id" />, {
+							src: 'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf',
+							width: <eval:expr value="web.size(width ?? 425)" />,
+							height: <eval:expr value="web.size(height ?? 350)" />
+						}, {
+							config: {
+								videoFile: <eval:js value="source" />,
+								autoPlay: <eval:js value="start" />
+							}
+						}
+					);
+				</tail>
+			</html>
+		</return>
+	</function>
+</extension>
