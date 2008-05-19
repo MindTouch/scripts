@@ -6,7 +6,7 @@
 	<uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/FlowPlayer</uri.help>
 	
 	<function>
-		<name>flv</name>
+		<name>flowplayer</name>
 		<description>Embed FLV Player.</description>
 		<param name="source" type="uri">Media uri.</param>
 		<param name="width" type="num" optional="true">Player width. (default: 425)</param>
@@ -17,18 +17,20 @@
 				<head><script type="text/javascript" src="http://scripts.mindtouch.com/res/flashembed.min.js" /></head>
 				<body><div eval:id="@id" /></body>
 				<tail>
-					flashembed(
-						<eval:js value="@id" />, {
-							src: 'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf',
-							width: <eval:expr value="web.size(width ?? 425)" />,
-							height: <eval:expr value="web.size(height ?? 350)" />
-						}, {
-							config: {
-								videoFile: <eval:js value="source" />,
-								autoPlay: <eval:js value="start" />
+					<script>
+						flashembed(
+							<eval:js value="@id" />, {
+								src: 'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf',
+								width: <eval:expr value="web.size(width ?? 425)" />,
+								height: <eval:expr value="web.size(height ?? 350)" />
+							}, {
+								config: {
+									videoFile: <eval:js value="source" />,
+									autoPlay: <eval:js value="start" />
+								}
 							}
-						}
-					);
+						);
+					</script>
 				</tail>
 			</html>
 		</return>
