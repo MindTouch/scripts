@@ -12,6 +12,7 @@
 		<param name="width" type="num" optional="true">Player width. (default: 425)</param>
 		<param name="height" type="num" optional="true">Player height. (default: 350)</param>
 		<param name="start" type="bool" optional="true">Auto-start player. (default: false)</param>
+		<param name="skin" type="str" optional="true">Player skin. (one of "classic", "light", or "dark"; default: "classic")</param>
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head><script type="text/javascript" src="http://scripts.mindtouch.com/res/flashembed.min.js" /></head>
@@ -20,9 +21,15 @@
 					<script>
 						flashembed(
 							<eval:js value="@id" />, {
-								src: 'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf',
-								width: <eval:expr value="web.size(width ?? 425)" />,
-								height: <eval:expr value="web.size(height ?? 350)" />
+								src: <eval:if test="skin">
+									<eval:if test="string.compare(skin, 'classic', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:if>
+									<eval:elseif test="string.compare(skin, 'light', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerLight.swf'</eval:elseif>
+									<eval:elseif test="string.compare(skin, 'dark', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerDark.swf'</eval:elseif>
+									<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>
+								</eval:if>
+								<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>,
+								width: <eval:js value="web.size(width ?? 425)" />,
+								height: <eval:js value="web.size(height ?? 350)" />
 							}, {
 								config: {
 									videoFile: <eval:js value="source" />,
