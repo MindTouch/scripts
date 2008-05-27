@@ -132,13 +132,13 @@
 
   <function>
     <name>define</name>
-    <description>Test 'define' construct.</description>
+    <description>Test 'scope' construct.</description>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:define value="1 + 2">
-            <eval:expr value="$" />
-          </eval:define>
+          <eval:scope value="var t = 1 + 2">
+            <eval:expr value="t" />
+          </eval:scope>
         </body>
       </html>
     </return>
