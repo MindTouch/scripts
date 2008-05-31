@@ -1,0 +1,55 @@
+<extension>
+  <title>MindTouch Skype Extension</title>
+  <label>Skype</label>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <description>This extension allows you to embed Skype action buttons.</description>
+  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Skype</uri.help>
+  <namespace>skype</namespace>
+
+  <requires host="Deki Wiki 1.9.0b" />
+  
+  <function>
+    <name>call</name>
+    <description>Embed a Skype call button.</description>
+    <param name="user" type="str">Skype user name.</param>
+    <return type="xml">action(user, 'call')</return>
+  </function>
+
+  <function>
+    <name>add</name>
+    <description>Embed a Skype add button.</description>
+    <param name="user" type="str">Skype user name.</param>
+    <return type="xml">action(user, 'add')</return>
+  </function>
+
+  <function>
+    <name>chat</name>
+    <description>Embed a Skype chat button.</description>
+    <param name="user" type="str">Skype user name.</param>
+    <return type="xml">action(user, 'chat')</return>
+  </function>
+
+  <function>
+    <access>private</access>
+    <name>action</name>
+    <description>Embed a Skype chat button.</description>
+    <param name="user" type="str">Skype user name.</param>
+    <param name="action" type="str">Skype user name.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js" />
+        </head>
+        <body>
+          <a rel="action" eval:href="'skype:' .. uri.encode(user) .. '?' .. uri.encode(action)">
+            <img eval:src="'http://mystatus.skype.com/mediumicon/' .. user" eval:style="'border: none; width: 26px; height: 26px;'" alt="Skype Me" />
+          </a>
+        </body>
+      </html>
+    </return>
+  </function>
+</extension>
+
+
+
+
