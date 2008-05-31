@@ -4,6 +4,7 @@
   <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
   <description>This extension allows you to add AddThis social bookmarking widgets to your wiki.</description>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Add_This_Social_Bookmarking</uri.help>
+  <uri.logo>http://scripts.mindtouch.com/logos/addthis-logo.png</uri.logo>
   <namespace>addthis</namespace>
 
   <config>
