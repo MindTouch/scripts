@@ -5,7 +5,7 @@
   <description>This extension contains functions for testing DekiScript XML constructs.</description>
   <namespace>test</namespace>
 
-  <requires host="Deki Wiki 1.9.1" />
+  <requires host="MindTouch Deki 1.9.1" />
 
   <function>
     <name>style</name>
