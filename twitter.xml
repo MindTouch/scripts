@@ -63,4 +63,19 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>counter</name>
+    <description>Show Twitter counter for user.</description>
+    <param name="name" type="str">Twitter user name.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <a rel="custom" eval:href="uri.appendquery('http://twittercounter.com', { username: name })" eval:title="'TwitterCounter for @' .. name">
+            <img width="88" height="26" eval:src="uri.appendquery('http://twittercounter.com/counter', { username: name })" style="border: medium none ;" eval:alt="'TwitterCounter for @' .. name" />
+          </a>
+        </body>
+      </html>
+    </return>
+  </function>
 </extension>
