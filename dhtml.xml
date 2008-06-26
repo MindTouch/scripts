@@ -56,37 +56,50 @@
     <param name="inputs" type="list" optional="true">Input field. (default: [{ label: nil, value: nil, field: nil, hidden: false }])</param>
     <param name="button" type="str" optional="true">Input button. (default: "Ok")</param>
     <param name="length" type="num" optional="true">Input length. (default: 16)</param>
-    <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
+    <param name="publish" type="str" optional="true">Publish on channel or a URI. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <head>
-          <script type="text/javascript">
-            function dhtml_submit_form(id, c) {
-              var m = { };
-              DekiWiki.$(document.getElementById(id)).find('input').each(function() { 
-                if(DekiWiki.hasValue(this.name)) m[this.name] = this.value; 
-              });
-              DekiWiki.publish(c, m);
-            }
-          </script>
-        </head>
-        <body>
-          <table eval:id="@id">
-            <eval:for var="input" in="args.inputs" test="!input.hidden">
-              <tr>
-                <td><eval:expr>input.label ?? '\u00A0'</eval:expr></td>
-                <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
-              </tr>
-            </eval:for>
-            <tr>
-              <td>
-                <eval:for var="input" in="args.inputs" test="input.hidden">
-                  <input eval:name="input.field" eval:value="input.value" type="hidden" />
-                </eval:for>&#xA0;</td>
-              <td align="right"><input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'dhtml_submit_form(' .. json.emit(@id) .. ', ' .. json.emit(args.publish ?? 'default') .. ')'"/></td>
-            </tr>
-          </table>
-        </body>
+        <eval:define var="isuri" value="string.startswith(args.publish ?? '', 'http://', true)">
+          <eval:if test="!isuri">
+            <head>
+              <script type="text/javascript">
+                function dhtml_submit_form(id, c) {
+                  var m = { };
+                  DekiWiki.$(document.getElementById(id)).find('input').each(function() { 
+                    if(DekiWiki.hasValue(this.name)) m[this.name] = this.value; 
+                  });
+                  DekiWiki.publish(c, m);
+                }
+              </script>
+            </head>
+          </eval:if>
+          <body>
+            <form eval:action="isuri ? args.publish : nil">
+              <table eval:id="@id">
+                <eval:for var="input" in="args.inputs" test="!input.hidden">
+                  <tr>
+                    <td><eval:expr>input.label ?? '\u00A0'</eval:expr></td>
+                    <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
+                  </tr>
+                </eval:for>
+                <tr>
+                  <td>
+                    <eval:for var="input" in="args.inputs" test="input.hidden">
+                      <input eval:name="input.field" eval:value="input.value" type="hidden" />
+                    </eval:for>&#xA0;</td>
+                  <td align="right">
+                    <eval:if test="isuri">
+                      <input type="submit" eval:value="args.button ?? 'Ok'"/>
+                    </eval:if>
+                    <eval:if test="!isuri">
+                      <input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'dhtml_submit_form(' .. json.emit(@id) .. ', ' .. json.emit(args.publish ?? 'default') .. ')'" />
+                    </eval:if>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </body>
+        </eval:define>
       </html>
     </return>
   </function>
