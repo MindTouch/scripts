@@ -34,7 +34,7 @@
 							}, {
 								config: {
 									videoFile: <eval:js value="source" />,
-									autoPlay: <eval:js value="start" />
+									autoPlay: <eval:js value="start ?? false" />
 								}
 							}
 						);
