@@ -17,8 +17,8 @@
     <return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<body>
-          <eval:let var="hash" value="emailhash ?? user.emailhash">
-            <img eval:src="uri.appendquery(uri.appendpath('http://www.gravatar.com/avatar', string.contains(hash, '@') ? string.hash(hash) : hash), { s: size, r: rating, d: default })" />
+          <eval:let var="hash" value="$emailhash ?? user.emailhash">
+            <img eval:src="uri.appendquery(uri.appendpath('http://www.gravatar.com/avatar', string.contains(hash, '@') ? string.hash(hash) : hash), { s: $size, r: $rating, d: $default })" />
           </eval:let>
 				</body>
 			</html>

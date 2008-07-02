@@ -71,8 +71,8 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <a rel="custom" eval:href="uri.appendquery('http://twittercounter.com', { username: name })" eval:title="'TwitterCounter for @' .. name">
-            <img width="88" height="26" eval:src="uri.appendquery('http://twittercounter.com/counter', { username: name })" style="border: medium none ;" eval:alt="'TwitterCounter for @' .. name" />
+          <a rel="custom" eval:href="uri.appendquery('http://twittercounter.com', { username: args.name })" eval:title="'TwitterCounter for @' .. args.name">
+            <img width="88" height="26" eval:src="uri.appendquery('http://twittercounter.com/counter', { username: args.name })" style="border: medium none ;" eval:alt="'TwitterCounter for @' .. args.name" />
           </a>
         </body>
       </html>

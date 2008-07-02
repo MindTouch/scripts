@@ -27,10 +27,10 @@
 					<eval:else>
 						<div eval:id="@id" />
 						<script type="text/javascript">
-							var scribd_doc = scribd.Document.getDocFromUrl(<eval:js>document</eval:js>, <eval:js>config['pubid']</eval:js>); 
-							<eval:if test="width">scribd_doc.addParam('width', <eval:js>web.size(width)</eval:js>);</eval:if>
-							<eval:if test="height">scribd_doc.addParam('height', <eval:js>web.size(height)</eval:js>);</eval:if>
-							<eval:if test="page">scribd_doc.addParam('page', <eval:js>page</eval:js>);</eval:if>
+							var scribd_doc = scribd.Document.getDocFromUrl(<eval:js>args.document</eval:js>, <eval:js>config['pubid']</eval:js>); 
+							<eval:if test="args.width">scribd_doc.addParam('width', <eval:js>web.size(args.width)</eval:js>);</eval:if>
+							<eval:if test="args.height">scribd_doc.addParam('height', <eval:js>web.size(args.height)</eval:js>);</eval:if>
+							<eval:if test="args.page">scribd_doc.addParam('page', <eval:js>args.page</eval:js>);</eval:if>
 							scribd_doc.write(<eval:js value="@id" />);  
 						</script>
 					</eval:else>

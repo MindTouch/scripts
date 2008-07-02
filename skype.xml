@@ -12,21 +12,21 @@
     <name>call</name>
     <description>Embed a Skype call button.</description>
     <param name="user" type="str">Skype user name.</param>
-    <return type="xml">action(user, 'call')</return>
+    <return type="xml">action(args.user, 'call')</return>
   </function>
 
   <function>
     <name>add</name>
     <description>Embed a Skype add button.</description>
     <param name="user" type="str">Skype user name.</param>
-    <return type="xml">action(user, 'add')</return>
+    <return type="xml">action(args.user, 'add')</return>
   </function>
 
   <function>
     <name>chat</name>
     <description>Embed a Skype chat button.</description>
     <param name="user" type="str">Skype user name.</param>
-    <return type="xml">action(user, 'chat')</return>
+    <return type="xml">action(args.user, 'chat')</return>
   </function>
 
   <function>
@@ -41,8 +41,8 @@
           <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js" />
         </head>
         <body>
-          <a rel="action" eval:href="'skype:' .. uri.encode(user) .. '?' .. uri.encode(action)">
-            <img eval:src="'http://mystatus.skype.com/mediumicon/' .. user" eval:style="'border: none; width: 26px; height: 26px;'" alt="Skype Me" />
+          <a rel="action" eval:href="'skype:' .. uri.encode(args.user) .. '?' .. uri.encode(args.action)">
+            <img eval:src="'http://mystatus.skype.com/mediumicon/' .. args.user" style="border: none; width: 26px; height: 26px;" alt="Skype Me" />
           </a>
         </body>
       </html>

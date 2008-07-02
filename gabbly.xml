@@ -18,9 +18,9 @@
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
           <iframe 
-            eval:src="'http://cw.gabbly.com/gabbly/cw.jsp?e=1&amp;dnc=true&amp;priv=on&amp;t=' .. web.uriencode(room ?? 'dekiwiki') .. '&amp;nick=' .. web.uriencode(username ?? '') .. '&amp;adurl=' .. web.uriencode(logo ?? 'http://home.gabbly.com/images/favicon.ico')"
-            eval:width="web.size(width ?? 425)"
-            eval:height="web.size(height ?? 350)"
+            eval:src="'http://cw.gabbly.com/gabbly/cw.jsp?e=1&amp;dnc=true&amp;priv=on&amp;t=' .. web.uriencode(args.room ?? 'dekiwiki') .. '&amp;nick=' .. web.uriencode(args.username ?? '') .. '&amp;adurl=' .. web.uriencode(args.logo ?? 'http://home.gabbly.com/images/favicon.ico')"
+            eval:width="web.size(args.width ?? 425)"
+            eval:height="web.size(args.height ?? 350)"
             marginwidth="0"
             marginheight="0"
             hspace="0"

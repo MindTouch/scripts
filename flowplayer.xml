@@ -22,19 +22,19 @@
 					<script>
 						flashembed(
 							<eval:js value="@id" />, {
-								src: <eval:if test="skin">
-									<eval:if test="string.compare(skin, 'classic', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:if>
-									<eval:elseif test="string.compare(skin, 'light', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerLight.swf'</eval:elseif>
-									<eval:elseif test="string.compare(skin, 'dark', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerDark.swf'</eval:elseif>
+								src: <eval:if test="args.skin">
+									<eval:if test="string.compare(args.skin, 'classic', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:if>
+									<eval:elseif test="string.compare(args.skin, 'light', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerLight.swf'</eval:elseif>
+									<eval:elseif test="string.compare(args.skin, 'dark', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerDark.swf'</eval:elseif>
 									<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>
 								</eval:if>
 								<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>,
-								width: <eval:js value="web.size(width ?? 425)" />,
-								height: <eval:js value="web.size(height ?? 350)" />
+								width: <eval:js value="web.size(args.width ?? 425)" />,
+								height: <eval:js value="web.size(args.height ?? 350)" />
 							}, {
 								config: {
-									videoFile: <eval:js value="source" />,
-									autoPlay: <eval:js value="start ?? false" />
+									videoFile: <eval:js value="args.source" />,
+									autoPlay: <eval:js value="args.start ?? false" />
 								}
 							}
 						);

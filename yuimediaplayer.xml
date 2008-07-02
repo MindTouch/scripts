@@ -3,13 +3,14 @@
   <label>YUI Media Player</label>
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/YUI_Media_Player</uri.help>
   <namespace>yui</namespace>
+  
   <function>
     <name>mediaplayer</name>
     <description>Embed YUI media player</description>
     <return>
       <html>
         <head>
-          <script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
+          <script type="text/javascript" src="http://mediaplayer.yahoo.com/js" />
         </head>
       </html>
     </return>
