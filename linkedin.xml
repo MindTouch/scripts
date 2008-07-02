@@ -6,7 +6,7 @@
   <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/LinkedIn</uri.help>
   <namespace>linkedin</namespace>
 
-  <requires host="MindTouch Deki 8.05.2" />
+  <requires host="MindTouch Deki 8.05.1" />
   
   <function>
     <name>CompanyInsider</name>
