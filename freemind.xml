@@ -1,0 +1,22 @@
+<extension>
+	<title>Freemind Viewer</title>
+	<description>Add Freemind Viewer to a Deki Page</description>
+	<uri.logo>	</uri.logo>
+	<namespace>freemind</namespace>
+	<function>
+		<name>viewer</name>
+		<description>Embeds a Freemind Map in a Deki Page</description>
+		<param name="url" type="string">The location of your Freemind Map</param>
+
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<body>
+				
+			<iframe eval:src="'http://deki-freemind.appspot.com/freemind/view?uri=' .. web.uriencode(args.url)" eval:width="web.size(args.width ?? 482)" eval:height="web.size(args.height ?? 387)" scrolling="no" />
+			
+				</body>
+			</html>
+		</return>
+	</function>
+</extension>
+
