@@ -186,7 +186,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <a rel="script" eval:href="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"><eval:expr>args.text</eval:expr></a>
+          <a rel="custom" eval:href="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"><eval:expr>args.text</eval:expr></a>
         </body>
       </html>
     </return>

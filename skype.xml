@@ -41,7 +41,7 @@
           <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js" />
         </head>
         <body>
-          <a rel="action" eval:href="'skype:' .. uri.encode(args.user) .. '?' .. uri.encode(args.action)">
+          <a rel="custom" eval:href="'skype:' .. uri.encode(args.user) .. '?' .. uri.encode(args.action)">
             <img eval:src="'http://mystatus.skype.com/mediumicon/' .. args.user" style="border: none; width: 26px; height: 26px;" alt="Skype Me" />
           </a>
         </body>
