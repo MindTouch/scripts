@@ -12,7 +12,11 @@
     <param name="width" type="num" optional="true">The iframe width. (default: 425)</param>
     <param name="height" type="num" optional="true">The iframe height. (default: 350)</param>
     <return>
-      <iframe src="{{args.uri}}" width="{{web.size(args.width ?? 425)}}" height="{{web.size(args.height ?? 350)}}" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" />
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <body>
+          <iframe src="{{args.uri}}" width="{{web.size(args.width ?? 425)}}" height="{{web.size(args.height ?? 350)}}" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" />
+        </body>
+      </html>
     </return>
   </function>
 </extension>
