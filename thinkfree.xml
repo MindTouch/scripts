@@ -3,7 +3,7 @@
   <label>ThinkFree</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for displaying Microsoft Office documents.</description>
-  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/ThinkFree</uri.help>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/ThinkFree</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/thinkfree-logo.png</uri.logo>
   <namespace>thinkfree</namespace>
 

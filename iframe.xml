@@ -1,0 +1,18 @@
+<extension>
+  <title>MindTouch iFrame Extension</title>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/iFrame</uri.help>
+  <label>iFrame</label>
+  <description>This extension contains a function for embedding &lt;iframe&gt; elements.</description>
+
+  <function>
+    <name>iframe</name>
+    <description>Embed an iframe element.</description>
+    <param name="uri" type="uri">The iframe URI.</param>
+    <param name="width" type="num" optional="true">The iframe width. (default: 425)</param>
+    <param name="height" type="num" optional="true">The iframe height. (default: 350)</param>
+    <return>
+      <iframe src="{{args.uri}}" width="{{web.size(args.width ?? 425)}}" height="{{web.size(args.height ?? 350)}}" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" />
+    </return>
+  </function>
+</extension>

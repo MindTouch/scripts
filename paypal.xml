@@ -3,7 +3,7 @@
   <label>PayPal</label>
   <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
   <description>Add a PayPal button to your wiki.</description>
-	<uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Paypal</uri.help>
+	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Paypal</uri.help>
 	<uri.logo>http://scripts.mindtouch.com/logos/paypal-logo.gif</uri.logo> 
 	<namespace>paypal</namespace>
 

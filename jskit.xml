@@ -2,7 +2,7 @@
   <title>MindTouch JS-Kit Extension</title>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension allows you to a Rating widget to your wiki.</description>
-  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/JS_Kit</uri.help>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/JS_Kit</uri.help>
   <label>JS-Kit</label>
   <namespace>jskit</namespace>
   

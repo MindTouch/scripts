@@ -1,7 +1,7 @@
 <extension>
   <title>MindTouch PageBus Extension</title>
   <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
-  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/PageBus</uri.help>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/PageBus</uri.help>
   <label>PageBus</label>
   <namespace>pagebus</namespace>
   <description>This extension contains functions for interacting with the PageBus.</description>

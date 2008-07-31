@@ -3,7 +3,7 @@
   <label>Twitter</label>
   <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Twitter feeds.</description>
-  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Twitter</uri.help>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Twitter</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/twitter-logo.png</uri.logo>
   <namespace>twitter</namespace>
 

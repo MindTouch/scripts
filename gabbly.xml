@@ -3,7 +3,7 @@
   <label>Gabbly</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Gabbly widgets.</description>
-  <uri.help>http://wiki.opengarden.org/Deki_Wiki/Extensions/Gabbly</uri.help>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Gabbly</uri.help>
   <namespace>gabbly</namespace>
   
   <function>
