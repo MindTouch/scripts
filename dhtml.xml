@@ -223,4 +223,22 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>toggle</name>
+    <description>Toggles displaying each of the set of matched elements.</description>
+    <param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "default")</param>
+    <param name="id" type="str" optional="true">ID of HTML element to toggle. (default: none)</param>
+    <param name="speed" type="str" optional="true">Content toggle speed (one of "slow", "normal", "fast" or milliseconds number; default: instantaneous).</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) {
+            var id = DekiWiki.hasValue(m.id, <eval:js>args.id ?? null</eval:js>);
+            if(id) DekiWiki.$('#' + id).toggle(DekiWiki.hasValue(m.speed, <eval:js>args.speed ?? null</eval:js>));
+          }, null);</script>
+        </head>
+      </html>
+    </return>
+  </function>
 </extension>
