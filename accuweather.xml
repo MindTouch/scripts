@@ -1,6 +1,6 @@
 ﻿<extension>
   <title>MindTouch AccuWeather Extension</title>
-  <lable>AccuWeather</lable>
+  <lable>AccuWeather</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding AccuWeather widgets.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/AccuWeather</uri.help>
