@@ -1,6 +1,7 @@
 <extension>
 	<title>Apple QuickTime Extension</title>
-	<description>Embed videos created with QuickTime Pro.</description>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/QuickTime</uri.help>
+  <description>Embed videos created with QuickTime Pro.</description>
 	
 	<function>
 		<name>quicktime</name>
