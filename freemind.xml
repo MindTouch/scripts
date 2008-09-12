@@ -6,7 +6,7 @@
 	<function>
 		<name>viewer</name>
 		<description>Embeds a Freemind Map in a Deki Page</description>
-		<param name="url" type="string">The location of your Freemind Map</param>
+		<param name="uri" type="str">The location of your Freemind Map</param>
 
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
