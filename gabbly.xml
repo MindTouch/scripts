@@ -1,5 +1,5 @@
 ﻿<extension>
-  <title>MindTouch Gabbly Extension</title>
+  <title>Gabbly Extension</title>
   <label>Gabbly</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Gabbly widgets.</description>

@@ -1,5 +1,5 @@
 ﻿<extension>
-  <title>MindTouch Google Extension</title>
+  <title>Google Extension</title>
   <label>Google</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Google maps, charts, and widgets.</description>

@@ -1,5 +1,5 @@
 ﻿<extension>
-  <title>MindTouch Flickr Extension</title>
+  <title>Flickr Extension</title>
   <label>Flickr</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embeding tagged pictures from Flickr.</description>

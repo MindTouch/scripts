@@ -1,5 +1,5 @@
 <extension>
-  <title>MindTouch WidgetBox Extension</title>
+  <title>WidgetBox Extension</title>
   <label>WidgetBox</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding WidgetBox widgets.</description>

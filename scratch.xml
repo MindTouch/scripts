@@ -1,5 +1,5 @@
 ﻿<extension>
-  <title>MindTouch Scratch Extension</title>
+  <title>Scratch Extension</title>
   <label>Scratch</label>
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Scratch applications.</description>
