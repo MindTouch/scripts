@@ -14,6 +14,8 @@
 		<param name="height" type="num" optional="true">Player height. (default: 350)</param>
 		<param name="start" type="bool" optional="true">Auto-start player. (default: false)</param>
 		<param name="skin" type="str" optional="true">Player skin. (one of "classic", "light", or "dark"; default: "classic")</param>
+		<param name="splash" type="uri" optional="true">URI of Splash image</param>
+
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head><script type="text/javascript" src="http://scripts.mindtouch.com/res/flashembed.min.js" /></head>
@@ -34,7 +36,8 @@
 							}, {
 								config: {
 									videoFile: <eval:js value="args.source" />,
-									autoPlay: <eval:js value="args.start ?? false" />
+									autoPlay: <eval:js value="args.start ?? false" />,
+									splashImageFile: <eval:js value="args.splash" />
 								}
 							}
 						);
