@@ -59,7 +59,7 @@
     <param name="publish" type="str" optional="true">Publish on channel or a URI. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <eval:define var="isuri" value="string.startswith(args.publish ?? '', 'http://', true) || string.startswith(args.publish ?? '', 'https://', true)">
+        <eval:block value="var isuri = string.startswith(args.publish ?? '', 'http://', true) || string.startswith(args.publish ?? '', 'https://', true)">
           <eval:if test="!isuri">
             <head>
               <script type="text/javascript">
@@ -76,17 +76,17 @@
           <body>
             <form eval:action="isuri ? args.publish : nil">
               <table eval:id="@id">
-                <eval:for var="input" in="args.inputs" test="!input.hidden">
+                <eval:foreach var="input" in="args.inputs" test="!input.hidden">
                   <tr>
                     <td><eval:expr>input.label ?? '\u00A0'</eval:expr></td>
                     <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
                   </tr>
-                </eval:for>
+                </eval:foreach>
                 <tr>
                   <td>
-                    <eval:for var="input" in="args.inputs" test="input.hidden">
+                    <eval:foreach var="input" in="args.inputs" test="input.hidden">
                       <input eval:name="input.field" eval:value="input.value" type="hidden" />
-                    </eval:for>&#xA0;</td>
+                    </eval:foreach>&#xA0;</td>
                   <td align="right">
                     <eval:if test="isuri">
                       <input type="submit" eval:value="args.button ?? 'Ok'"/>
@@ -99,7 +99,7 @@
               </table>
             </form>
           </body>
-        </eval:define>
+        </eval:block>
       </html>
     </return>
   </function>
@@ -116,7 +116,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:define var="isuri" value="string.startswith(args.publish ?? '', 'http://', true) || string.startswith(args.publish ?? '', 'https://', true)">
+          <eval:block value="var isuri = string.startswith(args.publish ?? '', 'http://', true) || string.startswith(args.publish ?? '', 'https://', true)">
             <eval:if test="isuri">
               <form eval:action="args.publish">
                 <nobr><eval:expr>args.label ? args.label .. ' ' : ''</eval:expr><input eval:name="args.field ?? 'text'" eval:value="args.value" eval:size="args.length ?? 16" /><input type="submit" eval:value="args.button ?? 'Ok'" ></input></nobr>
@@ -125,7 +125,7 @@
             <eval:if test="!isuri">
               <nobr><eval:expr>args.label ? args.label .. ' ' : ''</eval:expr><input eval:name="@id" eval:id="@id" eval:value="args.value" eval:size="args.length ?? 16" /> <input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', { ' .. json.emit(args.field ?? 'text') .. ' : document.getElementById(' .. json.emit(@id) .. ').value })'"></input></nobr>
             </eval:if>
-          </eval:define>
+          </eval:block>
         </body>
       </html>
     </return>
@@ -165,9 +165,9 @@
           <table border="0" cellpadding="0" cellspacing="0" class="feedtable sortable">
             <thead>
               <tr>
-                <eval:for var="column" in="args.columns">
+                <eval:foreach var="column" in="args.columns">
                   <th><eval:expr>column.label ?? column.field ?? '\u00A0'</eval:expr></th>
-                </eval:for>
+                </eval:foreach>
               </tr>
             </thead>
             <tbody eval:id="@id" count="0"></tbody>
@@ -217,7 +217,7 @@
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
           <select eval:onchange="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.messages) .. '[this.selectedIndex])'">
-            <eval:for var="value" in="args.values"><option><eval:expr>value</eval:expr></option></eval:for>
+            <eval:foreach var="value" in="args.values"><option><eval:expr>value</eval:expr></option></eval:foreach>
           </select>
         </body>
       </html>
