@@ -1,9 +1,11 @@
 ﻿<extension>
 	<title>Remember The Milk Gadget</title>
+	 <uri.logo>http://scripts.mindtouch.com/logos/rtm-logo.png</uri.logo>  
 	<namespace>rtm</namespace>
 	<function>
 		<name>gadget</name>
 		<description>Adds the Remeber The Milk gadget into Deki</description>    
+		
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head>
