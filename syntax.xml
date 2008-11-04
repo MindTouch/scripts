@@ -4,7 +4,6 @@
   <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
   <description>This extension contains functions for highlighting syntax of popular programming languages.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Syntax</uri.help>
-  <uri.logo>http://scripts.mindtouch.com/logos/syntax-logo.png</uri.logo>
   <namespace>syntax</namespace>
   <config>
     <param name="resources-uri" type="uri">Base uri for syntax service javascript files (default: http://scripts.mindtouch.com/res/syntax/)</param>
