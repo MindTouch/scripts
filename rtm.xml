@@ -1,0 +1,18 @@
+﻿<extension>
+	<title>Remember The Milk Gadget</title>
+	<namespace>rtm</namespace>
+	<function>
+		<name>gadget</name>
+		<description>Adds the Remeber The Milk gadget into Deki</description>    
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<head>
+				</head>
+				<body>
+					<iframe src="http://www.rememberthemilk.com/services/modules/gmail/" width="75%" height="500px" frameborder="no">
+					</iframe>
+				</body>
+			</html>
+		</return>
+	</function>
+</extension>
