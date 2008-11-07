@@ -53,7 +53,7 @@
       </html>
     </return>
   </function>
-  <function trasnform="pre">
+  <function transform="pre">
     <name>Css</name>
     <description>Highlight CSS syntax</description>
     <param name="code" type="str">source code to highlight</param>
