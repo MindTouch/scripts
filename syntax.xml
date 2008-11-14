@@ -361,4 +361,26 @@
       </html>
     </return>
   </function>
+  <function transform="pre">
+    <name>Powershell</name>
+    <description>Highlight Powershell syntax</description>
+    <param name="code" type="str">source code to highlight</param>
+    <param name="collapse" type="bool" optional="true">collapse code view (default: false)</param>
+    <param name="firstline" type="num" optional="true">first line number (default: 1)</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head block="var baseUri = config['resources-uri'] ?? 'http://scripts.mindtouch.com/res/syntax'">
+              <link type="text/css" rel="stylesheet" eval:href="uri.appendpath(baseUri, 'SyntaxHighlighter.css')" />
+              <script type="text/javascript" eval:src="uri.appendpath(baseUri, 'shCore.js')" />
+              <script type="text/javascript" eval:src="uri.appendpath(baseUri, 'shBrushPowershell.js')" />
+        </head>
+        <body>
+          <pre name="code" eval:class="'powershell' .. (args.collapse == 'true' ? ':collapse' : '') .. (args.firstline ? ':firstline[' .. args.firstline .. ']' : '');"><eval:expr value="args.code"/></pre>
+        </body>
+        <tail>
+          <script type="text/javascript">dp.SyntaxHighlighter.HighlightAll('code');</script>
+        </tail>
+      </html>
+    </return>
+  </function>
 </extension>
