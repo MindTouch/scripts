@@ -1,0 +1,24 @@
+﻿<extension>
+	<title>Edit Grid</title>
+	<description>Embed Collaborative Spreadsheets within Deki</description>
+	<uri.help>
+	</uri.help>
+	<namespace>editgrid</namespace>
+	<function>
+		<name>widget</name>
+		<description>
+		</description>
+		<param name="user" type="str">Edit Grid User Profile</param>
+		<param name="sheet" type="str">Name of Edit Grid Sheet to embed</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<head>
+				</head>
+				<body>
+					<iframe frameborder="0" eval:src="'http://www.editgrid.com/publish/grid/user/'.. uri.encode(args.user) .. '/'.. uri.encode(args.sheet) ..'?show=rh,ch,mb,&amp;version=2&amp;frame_style=border%3A9px%20solid%20%23666%3Bheight%3A380px%3Bwidth%3A100%25'" style="border:9px solid #666;height:600px;width:100%">
+					</iframe>
+				</body>
+			</html>
+		</return>
+	</function>
+</extension>
