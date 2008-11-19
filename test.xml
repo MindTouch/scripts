@@ -101,13 +101,13 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:if test="value is list">
-            <eval:foreach var="x" in="value">
+          <eval:if test="$value is list">
+            <eval:foreach var="x" in="$value">
               <eval:expr value="x" /><br />
             </eval:foreach>
           </eval:if>
-          <eval:elseif test="value is map">
-            <eval:foreach var="x" in="map.keyvalues(value)">
+          <eval:elseif test="$value is map">
+            <eval:foreach var="x" in="map.keyvalues($value)">
               <eval:expr value="x.key" /> = <eval:expr value="x.value" /><br />
             </eval:foreach>
           </eval:elseif>
@@ -136,9 +136,9 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:scope value="var t = 1 + 2">
+          <eval:block value="var t = 1 + 2">
             <eval:expr value="t" />
-          </eval:scope>
+          </eval:block>
         </body>
       </html>
     </return>
@@ -166,8 +166,8 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <div eval:style="'float:' .. (float ?? 'right') .. ';'">
-            <eval:expr value="value" />
+          <div eval:style="'float:' .. ($float ?? 'right') .. ';'">
+            <eval:expr value="$value" />
           </div>
         </body>
       </html>
@@ -182,7 +182,7 @@
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
           <ol>
-            <eval:foreach in="value['li']">
+            <eval:foreach in="$value['.//li']">
               <eval:expr value="$" />
             </eval:foreach>
           </ol>
@@ -198,7 +198,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <eval:expr value="typeof value" />
+          <eval:expr value="typeof $value" />
         </body>
       </html>
     </return>
