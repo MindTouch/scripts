@@ -1,0 +1,45 @@
+﻿
+<extension>
+	<title>Zoho</title>
+	<description>Include Zoho Apps in MindTouch Deki</description>
+	 <uri.logo>http://scripts.mindtouch.com/logos/zoho.png</uri.logo>
+	<namespace>zoho</namespace>
+	<function>
+		<name>creator</name>
+		<description>
+		</description>
+		<param name="user" type="str">Zoho account username</param>
+		<param name="form" type="str">Form of Data that you want to embed</param>
+		<param name="view" type="str">View of Data that you want to embed</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<body>
+					<iframe height='500px' width='100%' frameborder='0' scrolling='auto' eval:src="'http://creator.zoho.com/'.. uri.encode(args.user) .. '/'.. uri.encode(args.form) .. '/view-embed/'.. uri.encode(args.view) .. '/'">
+					</iframe>
+				</body>
+				<tail>
+				</tail>
+			</html>
+		</return>
+	</function>
+	<function>
+		<name>meeting</name>
+		<description>
+		</description>
+		<param name="user" type="str">Zoho account username</param>
+		<param name="key" type="str">Key of meeting that you want to embed (remove spaces in meeting key)</param>
+		    <param name="width" type="int">Width of viewer (default: 425px)</param>   
+          <param name="height" type="int">Height of viewer (default: 425px)</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<body>
+					<iframe width="{{web.size(args.width ?? 425)}}" height="{{web.size(args.height ?? 425)}}"  eval:src="'http://meeting.zoho.com/login/embedzohomeeting.jsp?userName='.. uri.encode(args.user) .. '&amp;meetingKey='.. uri.encode(args.key) .. '&amp;newWindow=false'" frameborder="0">
+					</iframe>
+				</body>
+				<tail>
+				</tail>
+			</html>
+		</return>
+	</function>
+</extension>
+
