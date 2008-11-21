@@ -14,9 +14,29 @@
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<body block="let float = args.cssFloat ? 'float:' .. args.cssFloat : _;">
-					<iframe eval:src="'http://gamercard.xbox.com/'.. args.gamerTag .. '.card'" scrolling="no" frameBorder="0" height="140" width="204" eval:style="float"><eval:expr>args.gamerTag</eval:expr></iframe>
+					<iframe eval:src="'http://gamercard.xbox.com/'.. uri.encode(args.gamerTag) .. '.card'" scrolling="no" frameBorder="0" height="140" width="204" eval:style="float"><eval:expr>args.gamerTag</eval:expr></iframe>
 				</body>
 			</html>
 		</return>
 	</function>
+
+	<function>
+		<name>avatar</name>
+		<description>Embeds a picture of your avatar for all to see!</description>
+		<param name="gamerTag" type="str">Your Xbox Live gamer tag. It's your publically displayed name.</param>
+		<param name="cssFloat" type="str" optional="true">Define the css float for your gamer tag [left, right, none] (default: none)</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<body block="let float = args.cssFloat ? 'float:' .. args.cssFloat : _;">
+					<div eval:style="'width: 160px; text-align: center; ' .. float" eval:title="args.gamerTag">
+						<div eval:style="'height: 300px; background: transparent url(http://avatar.xboxlive.com/avatar/' .. uri.encode(args.gamerTag) .. '/avatar-body.png) no-repeat top center;'"></div>
+						<a eval:href="'http://live.xbox.com/en-US/profile/profile.aspx?GamerTag=' .. uri.encode(args.gamerTag)">
+							<eval:expr>args.gamerTag</eval:expr>
+						</a>
+					</div>
+				</body>
+			</html>
+		</return>
+	</function>
+
 </extension>
