@@ -15,7 +15,8 @@
 		<param name="start" type="bool" optional="true">Auto-start player. (default: false)</param>
 		<param name="skin" type="str" optional="true">Player skin. (one of "classic", "light", or "dark"; default: "classic")</param>
 		<param name="splash" type="uri" optional="true">URI of Splash image</param>
-
+        <param name="loop" type="str" optional="true">Loop the Video (Default:False) </param> 
+		
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head><script type="text/javascript" src="http://scripts.mindtouch.com/res/flashembed.min.js" /></head>
@@ -30,12 +31,14 @@
 									<eval:elseif test="string.compare(args.skin, 'dark', true) == 0">'http://scripts.mindtouch.com/res/FlowPlayerDark.swf'</eval:elseif>
 									<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>
 								</eval:if>
+						
 								<eval:else>'http://scripts.mindtouch.com/res/FlowPlayerClassic.swf'</eval:else>,
 								width: <eval:js value="web.size(args.width ?? 425)" />,
 								height: <eval:js value="web.size(args.height ?? 350)" />
 							}, {
 								config: {
 									videoFile: <eval:js value="args.source" />,
+									loop: <eval:js value="args.loop ?? false" />,
 									autoPlay: <eval:js value="args.start ?? false" />,
 									splashImageFile: <eval:js value="args.splash" />
 								}
