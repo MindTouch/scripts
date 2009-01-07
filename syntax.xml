@@ -384,8 +384,8 @@
     </return>
   </function>
   <function transform="pre">
-    <name>None</name>
-    <description>Show syntax highlighter with nothing highlighted</description>
+    <name>Text</name>
+    <description>Show plain text</description>
     <param name="code" type="str">source code to highlight</param>
     <param name="collapse" type="bool" optional="true">collapse code view (default: false)</param>
     <param name="firstline" type="num" optional="true">first line number (default: 1)</param>
