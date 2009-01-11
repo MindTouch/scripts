@@ -1,7 +1,7 @@
 dp.sh.Brushes.Dekiscript=function()
 {
-    var datatypes='nil bool num str map list true false';
-    var keywords='if else foreach var let switch case default break continue typeof in null';
+    var datatypes='nil bool num str map list';
+    var keywords='break case continue default else false foreach if in is let nil not null switch true typeof var where';
 
     this.regexList=[{regex:dp.sh.RegexLib.SingleLineCComments,css:'comment'},
                     {regex:dp.sh.RegexLib.MultiLineCComments,css:'comment'},
