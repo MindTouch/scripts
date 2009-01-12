@@ -19,19 +19,17 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <div init="var doc = $document; if(string.startswith(doc, 'local://', true)) { let doc = site.uri .. '@api' .. string.substr(doc, string.indexof(doc, '/deki', true)); }">
-            <eval:if test="$type == 'write'"><eval:expr value="iframe(doc, $width, $height, 'WRITE_VIEWER')" /></eval:if>
-            <eval:elseif test="$type == 'calc'"><eval:expr value="iframe(doc, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
-            <eval:elseif test="$type == 'show'"><eval:expr value="iframe(doc, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
-            <eval:else>
-              <eval:block value="var parts = uri.parse(doc); var last = parts.path[#parts.path-1]; var index = string.lastindexof(last, '.'); var ext = (index >= 0) ? string.substr(last, index + 1) : ''">
-                <eval:if test="list.contains(['doc', 'rtf', 'txt'], ext)"><eval:expr value="iframe(doc, $width, $height, 'WRITE_VIEWER')" /></eval:if>
-                <eval:elseif test="list.contains(['xls', 'csv'], ext)"><eval:expr value="iframe(doc, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
-                <eval:elseif test="list.contains(['ppt', 'pps'], ext)"><eval:expr value="iframe(doc, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
-                <eval:else>ERROR: unable to determine document type, use 'type' argument to specify type</eval:else>
-              </eval:block>
-            </eval:else>
-            </div>
+          <eval:if test="$type == 'write'"><eval:expr value="iframe($document, $width, $height, 'WRITE_VIEWER')" /></eval:if>
+          <eval:elseif test="$type == 'calc'"><eval:expr value="iframe($document, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
+          <eval:elseif test="$type == 'show'"><eval:expr value="iframe($document, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
+          <eval:else>
+            <eval:block value="var parts = uri.parse($document); var last = parts.path[#parts.path-1]; var index = string.lastindexof(last, '.'); var ext = (index >= 0) ? string.substr(last, index + 1) : ''">
+              <eval:if test="list.contains(['doc', 'rtf', 'txt'], ext)"><eval:expr value="iframe($document, $width, $height, 'WRITE_VIEWER')" /></eval:if>
+              <eval:elseif test="list.contains(['xls', 'csv'], ext)"><eval:expr value="iframe($document, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
+              <eval:elseif test="list.contains(['ppt', 'pps'], ext)"><eval:expr value="iframe($document, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
+              <eval:else>ERROR: unable to determine document type, use 'type' argument to specify type</eval:else>
+            </eval:block>
+          </eval:else>
         </body>
       </html>
     </return>
