@@ -44,7 +44,7 @@
     <param name="type" type="str" />
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <body init="var doc = $document; if(string.startswith(doc, 'local://', true)) { let doc = site.uri .. string.substr(doc, string.indexof(doc, '/deki', true) + 1); }">
+        <body init="var doc = $document; if(string.startswith(doc, 'local://', true)) { let doc = site.uri .. '@api' .. string.substr(u, string.indexof(u, '/deki', true)); }">
           <iframe eval:src="'http://viewer.thinkfree.com/view.jsp?app=' .. $type .. '&amp;open=' .. uri.encode(doc)" eval:width="web.size($width ?? 0.9)" eval:height="web.size($height ?? 425)" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" />
         </body>
       </html>
