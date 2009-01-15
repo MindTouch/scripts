@@ -1,9 +1,10 @@
 ﻿<extension>
 	<title>EditGrid Extension</title>
-	<description>This extensionc contains functions for embedding EditGrid collaborative spreadsheets.</description>
-  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
   <label>EdigGrid</label>
-	<namespace>editgrid</namespace>
+  <copyright>Copyright (c) 2008 MindTouch, Inc.</copyright>
+  <description>This extension contains functions for embedding EditGrid collaborative spreadsheets.</description>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Lightbox</uri.help>
+  <namespace>editgrid</namespace>
   
 	<function>
 		<name>widget</name>
