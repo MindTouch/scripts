@@ -16,7 +16,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <iframe src="{{args.uri}}" width="{{web.size(args.width ?? 425)}}" height="{{web.size(args.height ?? 350)}}" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="{{args.frameborder ?? 0}}" scrolling="{{args.scrolling ? 'yes' : 'no'}}" />
+          <iframe eval:src="args.uri" eval:width="web.size(args.width ?? 425)" eval:height="web.size(args.height ?? 350)" marginwidth="0" marginheight="0" hspace="0" vspace="0" eval:frameborder="args.frameborder ?? 0" eval:scrolling="args.scrolling ? 'yes' : 'no'" />
         </body>
       </html>
     </return>
