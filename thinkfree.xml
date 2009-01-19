@@ -24,9 +24,9 @@
           <eval:elseif test="$type == 'show'"><eval:expr value="iframe($document, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
           <eval:else>
             <eval:block value="var parts = uri.parse($document); var last = parts.path[#parts.path-1]; var index = string.lastindexof(last, '.'); var ext = (index >= 0) ? string.substr(last, index + 1) : ''">
-              <eval:if test="list.contains(['doc', 'rtf', 'txt'], ext)"><eval:expr value="iframe($document, $width, $height, 'WRITE_VIEWER')" /></eval:if>
-              <eval:elseif test="list.contains(['xls', 'csv'], ext)"><eval:expr value="iframe($document, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
-              <eval:elseif test="list.contains(['ppt', 'pps'], ext)"><eval:expr value="iframe($document, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
+              <eval:if test="list.contains(['doc', 'docx', 'rtf', 'txt'], ext)"><eval:expr value="iframe($document, $width, $height, 'WRITE_VIEWER')" /></eval:if>
+              <eval:elseif test="list.contains(['xls', 'xlsx', 'csv'], ext)"><eval:expr value="iframe($document, $width, $height, 'CALC_VIEWER')" /></eval:elseif>
+              <eval:elseif test="list.contains(['ppt', 'pps', 'pptx', 'ppsx'], ext)"><eval:expr value="iframe($document, $width, $height, 'SHOW_VIEWER')" /></eval:elseif>
               <eval:else>ERROR: unable to determine document type, use 'type' argument to specify type</eval:else>
             </eval:block>
           </eval:else>
