@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>MindTouch Syntax Extension</title>
   <label>Syntax</label>
-  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
   <description>This extension contains functions for highlighting syntax of popular programming languages.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Syntax</uri.help>
   <namespace>syntax</namespace>

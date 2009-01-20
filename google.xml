@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>Google Extension</title>
   <label>Google</label>
-  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
   <description>This extension contains functions for embedding Google maps, charts, and widgets.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Google</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/google-logo.png</uri.logo>

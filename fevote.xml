@@ -1,7 +1,7 @@
 <extension>
   <title>FeVote Extension</title>
   <label>FeVote</label>
-  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
   <description>This extension allows you to embed FeVote panels into your wiki.</description>
   <uri.logo>http://scripts.mindtouch.com/logos/fevote-logo.gif</uri.logo>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Fevote</uri.help>

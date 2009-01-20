@@ -1,6 +1,6 @@
 <extension>
   <title>MindTouch DHTML Extension</title>
-  <copyright>Copyright (c) 2007, 2008 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/DHtml</uri.help>
   <label>DHtml</label>
   <namespace>dhtml</namespace>
