@@ -15,10 +15,10 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
-          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
-            if(DekiWiki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
-              <eval:if test="args.html ?? true">DekiWiki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
-              <eval:if test="!(args.html ?? true)">DekiWiki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+          <script type="text/javascript">Deki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
+            if(Deki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
+              <eval:if test="args.html ?? true">Deki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+              <eval:if test="!(args.html ?? true)">Deki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
           }, null);</script>
         </head>
         <body>
@@ -37,10 +37,10 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
-          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
-            if(DekiWiki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
-              <eval:if test="args.html ?? true">DekiWiki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
-              <eval:if test="!(args.html ?? true)">DekiWiki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+          <script type="text/javascript">Deki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) { 
+            if(Deki.hasValue(m[<eval:js>args.field ?? 'text'</eval:js>]))
+              <eval:if test="args.html ?? true">Deki.util.Dom.setInnerHTML(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
+              <eval:if test="!(args.html ?? true)">Deki.util.Dom.setInnerText(document.getElementById(<eval:js>@id</eval:js>), m[<eval:js>args.field ?? 'text'</eval:js>]);</eval:if>
           }, null);</script>
         </head>
         <body>
@@ -65,10 +65,10 @@
               <script type="text/javascript">
                 function dhtml_submit_form(id, c) {
                   var m = { };
-                  DekiWiki.$(document.getElementById(id)).find('input').each(function() { 
-                    if(DekiWiki.hasValue(this.name)) m[this.name] = this.value; 
+                  Deki.$(document.getElementById(id)).find('input').each(function() { 
+                    if(Deki.hasValue(this.name)) m[this.name] = this.value; 
                   });
-                  DekiWiki.publish(c, m);
+                  Deki.publish(c, m);
                 }
               </script>
             </head>
@@ -123,7 +123,7 @@
               </form>
             </eval:if>
             <eval:if test="!isuri">
-              <nobr><eval:expr>args.label ? args.label .. ' ' : ''</eval:expr><input eval:name="@id" eval:id="@id" eval:value="args.value" eval:size="args.length ?? 16" /> <input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', { ' .. json.emit(args.field ?? 'text') .. ' : document.getElementById(' .. json.emit(@id) .. ').value })'"></input></nobr>
+              <nobr><eval:expr>args.label ? args.label .. ' ' : ''</eval:expr><input eval:name="@id" eval:id="@id" eval:value="args.value" eval:size="args.length ?? 16" /> <input type="button" eval:value="args.button ?? 'Ok'" eval:onclick="'Deki.publish(' .. json.emit(args.publish ?? 'default') .. ', { ' .. json.emit(args.field ?? 'text') .. ' : document.getElementById(' .. json.emit(@id) .. ').value })'"></input></nobr>
             </eval:if>
           </eval:block>
         </body>
@@ -151,7 +151,7 @@
                 var column = f.columns[i];
                 if(typeof(column) == 'object') {
                   var td = document.createElement('td');
-                  if(DekiWiki.hasValue(v[column.field])) td.appendChild(document.createTextNode(v[column.field]));
+                  if(Deki.hasValue(v[column.field])) td.appendChild(document.createTextNode(v[column.field]));
                   else td.innerHTML = '&amp;nbsp;';
                   tr.appendChild(td);
                 }
@@ -159,7 +159,7 @@
               tbody.appendChild(tr);
             }
           </script>
-          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, dhtml_table_message_to_row, { id: <eval:js>@id</eval:js>, columns: <eval:js>args.columns</eval:js>});</script>
+          <script type="text/javascript">Deki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, dhtml_table_message_to_row, { id: <eval:js>@id</eval:js>, columns: <eval:js>args.columns</eval:js>});</script>
         </head>
         <body>
           <table border="0" cellpadding="0" cellspacing="0" class="feedtable sortable">
@@ -186,7 +186,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <a rel="custom" eval:href="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"><eval:expr>args.text</eval:expr></a>
+          <a rel="custom" eval:href="'javascript:Deki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"><eval:expr>args.text</eval:expr></a>
         </body>
       </html>
     </return>
@@ -201,7 +201,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <input type="button" eval:value="args.text"  eval:onclick="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"/>
+          <input type="button" eval:value="args.text"  eval:onclick="'javascript:Deki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.message) .. ')'"/>
         </body>
       </html>
     </return>
@@ -216,7 +216,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <select eval:onchange="'javascript:DekiWiki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.messages) .. '[this.selectedIndex])'">
+          <select eval:onchange="'javascript:Deki.publish(' .. json.emit(args.publish ?? 'default') .. ', ' .. json.emit(args.messages) .. '[this.selectedIndex])'">
             <eval:foreach var="value" in="args.values"><option><eval:expr>value</eval:expr></option></eval:foreach>
           </select>
         </body>
@@ -233,9 +233,9 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
-          <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) {
-            var id = DekiWiki.hasValue(m.id, <eval:js>args.id ?? null</eval:js>);
-            if(id) DekiWiki.$('#' + id).toggle(DekiWiki.hasValue(m.speed, <eval:js>args.speed ?? null</eval:js>));
+          <script type="text/javascript">Deki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, function(c, m, d) {
+            var id = Deki.hasValue(m.id, <eval:js>args.id ?? null</eval:js>);
+            if(id) Deki.$('#' + id).toggle(Deki.hasValue(m.speed, <eval:js>args.speed ?? null</eval:js>));
           }, null);</script>
         </head>
       </html>

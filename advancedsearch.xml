@@ -128,15 +128,15 @@
 							{
 								var m = {};
 								var namespace = o.name ? o.name + '.' : '';
-								DekiWiki.$(o).find('input').each(function()
+								Deki.$(o).find('input').each(function()
 								{ 
-									if (DekiWiki.hasValue(this.name))
+									if (Deki.hasValue(this.name))
 									{
 										m[namespace + this.name] = this.value;
 									}
 								});
 
-								DekiWiki.publish(channel, m);
+								Deki.publish(channel, m);
 								return true;
 							}
 							
@@ -284,8 +284,8 @@
 						</div>
 					</form>
 					<script type="text/javascript">
-						DekiWiki.$(<eval:js>'#' .. @formId</eval:js>).submit(GS.buildLuceneQuery);
-						DekiWiki.$(document).ready(function()
+						Deki.$(<eval:js>'#' .. @formId</eval:js>).submit(GS.buildLuceneQuery);
+						Deki.$(document).ready(function()
 						{
 							GS.createAutoComplete(<eval:js>@acId</eval:js>, <eval:js>@acResultsId</eval:js>);
 						});
