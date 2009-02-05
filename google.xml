@@ -24,7 +24,7 @@
           <head>
               <script eval:src="'http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;key=' .. config['api-key']" type="text/javascript" />
               <link type="text/css" rel="stylesheet" href="http://www.google.com/uds/css/gsearch.css" />
-              <script type="text/javascript">function google_ctrlexec_data(c, m, d) { if(Deki.hasValue(m.text)) d.ctrl.execute(m.text); }</script>
+              <script type="text/javascript">function google_ctrlexec_data(c, m, d) { if(DekiWiki.hasValue(m.text)) d.ctrl.execute(m.text); }</script>
           </head>
           <body>
               <div eval:id="@id" class="search-control" />
@@ -36,26 +36,26 @@
                   <eval:if test="args.publish">
                       gsctrl.setOnKeepCallback(null, function(r) {
                           var data = { html: r.html.innerHTML };
-                          if(Deki.hasValue(r.titleNoFormatting)) data.label = r.titleNoFormatting;
-                          else if(Deki.hasValue(r.author)) data.label = r.author;
-                          if(Deki.hasValue(r.url)) data.uri = r.url;
-                          else if(Deki.hasValue(r.postUrl)) data.uri = r.postUrl;
-                          else if(Deki.hasValue(r.blogUrl)) data.uri = r.blogUrl;
-                          if(Deki.hasValue(r.lat) &amp;&amp; Deki.hasValue(r.lng)) {
+                          if(DekiWiki.hasValue(r.titleNoFormatting)) data.label = r.titleNoFormatting;
+                          else if(DekiWiki.hasValue(r.author)) data.label = r.author;
+                          if(DekiWiki.hasValue(r.url)) data.uri = r.url;
+                          else if(DekiWiki.hasValue(r.postUrl)) data.uri = r.postUrl;
+                          else if(DekiWiki.hasValue(r.blogUrl)) data.uri = r.blogUrl;
+                          if(DekiWiki.hasValue(r.lat) &amp;&amp; DekiWiki.hasValue(r.lng)) {
                               data.latitude = r.lat;
                               data.longitude = r.lng;
                           }
-                          if(Deki.hasValue(r.streetAddress)) {
+                          if(DekiWiki.hasValue(r.streetAddress)) {
                               data.address = r.streetAddress;
-                              if(Deki.hasValue(r.city)) data.address += ', ' + r.city;
-                              if(Deki.hasValue(r.region)) data.address += ', ' + r.region;
-                              if(Deki.hasValue(r.country)) data.address += ', ' + r.country;
-                          } else if(Deki.hasValue(r.location)) data.address = r.location;
-                          if(Deki.hasValue(r.phoneNumbers) &amp;&amp; (r.phoneNumbers.length != 0)) data.phone = r.phoneNumbers[0].number;
-                          if(Deki.hasValue(r.content)) data.text = r.content;
-                          if(Deki.hasValue(r.publishedDate)) data.date = r.publishedDate;
-                          else if(Deki.hasValue(r.published)) data.date = r.published;
-                          Deki.publish(<eval:js>args.publish</eval:js>, data)
+                              if(DekiWiki.hasValue(r.city)) data.address += ', ' + r.city;
+                              if(DekiWiki.hasValue(r.region)) data.address += ', ' + r.region;
+                              if(DekiWiki.hasValue(r.country)) data.address += ', ' + r.country;
+                          } else if(DekiWiki.hasValue(r.location)) data.address = r.location;
+                          if(DekiWiki.hasValue(r.phoneNumbers) &amp;&amp; (r.phoneNumbers.length != 0)) data.phone = r.phoneNumbers[0].number;
+                          if(DekiWiki.hasValue(r.content)) data.text = r.content;
+                          if(DekiWiki.hasValue(r.publishedDate)) data.date = r.publishedDate;
+                          else if(DekiWiki.hasValue(r.published)) data.date = r.published;
+                          DekiWiki.publish(<eval:js>args.publish</eval:js>, data)
                       });              
                   </eval:if>
                   var showAll = new GsearcherOptions();
@@ -74,9 +74,9 @@
                   <eval:if test="args.options ? args.options.books : true">gsctrl.addSearcher(new GbookSearch(), <eval:if test="args.options.books == 'all'">showAll</eval:if><eval:elseif test="args.options.books == 'none'">showNone</eval:elseif><eval:else>showPartial</eval:else>);</eval:if>
                   <eval:if test="args.tabbed">options.setDrawMode(GSearchControl.DRAW_MODE_TABBED);</eval:if>
                   gsctrl.draw(document.getElementById(<eval:js>@id</eval:js>), options);
-                  Deki.subscribe(<eval:js>@id</eval:js>, null, google_ctrlexec_data, { ctrl: gsctrl });
-                  <eval:if test="args.subscribe">Deki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_ctrlexec_data, { ctrl: gsctrl });</eval:if>
-                  <eval:if test="args.search &amp;&amp; (args.search != '')">Deki.publish(<eval:js>@id</eval:js>, { text: <eval:js>args.search</eval:js> });</eval:if>
+                  DekiWiki.subscribe(<eval:js>@id</eval:js>, null, google_ctrlexec_data, { ctrl: gsctrl });
+                  <eval:if test="args.subscribe">DekiWiki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_ctrlexec_data, { ctrl: gsctrl });</eval:if>
+                  <eval:if test="args.search &amp;&amp; (args.search != '')">DekiWiki.publish(<eval:js>@id</eval:js>, { text: <eval:js>args.search</eval:js> });</eval:if>
               </script>
           </tail>
       </html>
@@ -96,9 +96,9 @@
               <script type="text/javascript">google.load('feeds', '1');</script>
               <script type="text/javascript">
                   function google_feedctrl_data(c, m, d) {
-                      if(Deki.hasValue(m.uri)) {
+                      if(DekiWiki.hasValue(m.uri)) {
                           ++d.count;
-                          d.feed.addFeed(m.uri, Deki.hasValue(m.label, Deki.hasValue(m.name, '#' + d.count)));
+                          d.feed.addFeed(m.uri, DekiWiki.hasValue(m.label, DekiWiki.hasValue(m.name, '#' + d.count)));
                           d.feed.draw(d.node, d.options);
                       }
                   }
@@ -117,10 +117,10 @@
                   var node = document.getElementById(id);
                   feed.draw(node, options);
                   var state = { feed: feed, options: options, node: node, count: 0 };
-                  Deki.subscribe(id, null, google_feedctrl_data, state);
-                  <eval:if test="args.subscribe">Deki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_feedctrl_data, state);</eval:if>
+                  DekiWiki.subscribe(id, null, google_feedctrl_data, state);
+                  <eval:if test="args.subscribe">DekiWiki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_feedctrl_data, state);</eval:if>
                   for(var i = 0; i &lt; feeds.length; ++i) {
-                      Deki.publish(id, feeds[i]);
+                      DekiWiki.publish(id, feeds[i]);
                   }
               </script>
           </tail>
@@ -142,9 +142,9 @@
               <script type="text/javascript">google.load('feeds', '1');</script>
               <script type="text/javascript">
                   function google_feedctrl_data(c, m, d) {
-                      if(Deki.hasValue(m.uri)) {
+                      if(DekiWiki.hasValue(m.uri)) {
                           ++d.count;
-                          d.feed.addFeed(m.uri, Deki.hasValue(m.label, Deki.hasValue(m.name, '#' + d.count)));
+                          d.feed.addFeed(m.uri, DekiWiki.hasValue(m.label, DekiWiki.hasValue(m.name, '#' + d.count)));
                           d.feed.draw(d.node, d.options);
                       }
                   }
@@ -163,10 +163,10 @@
                   var node = document.getElementById(id);
                   feed.draw(node, options);
                   var state = { feed: feed, options: options, node: node, count: 0 };
-                  Deki.subscribe(id, null, google_feedctrl_data, state);
-                  <eval:if test="args.subscribe">Deki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_feedctrl_data, state);</eval:if>
+                  DekiWiki.subscribe(id, null, google_feedctrl_data, state);
+                  <eval:if test="args.subscribe">DekiWiki.subscribe(<eval:js>args.subscribe</eval:js>, null, google_feedctrl_data, state);</eval:if>
                   for(var i = 0; i &lt; feeds.length; ++i) {
-                      Deki.publish(id, feeds[i]);
+                      DekiWiki.publish(id, feeds[i]);
                   }
               </script>
           </tail>
