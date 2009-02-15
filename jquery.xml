@@ -1,0 +1,45 @@
+﻿<extension>
+  <title>jQuery Extension</title>
+  <label>jQuery</label>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <description>Include jQuery plug-ins.</description>
+  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/jQuery</uri.help>
+  <namespace>jquery</namespace>
+  
+  <function>
+    <name>all</name>
+    <description>Add all jQuery extensions.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript" src="self:res/jquery/jquery-ui.js" />
+          <script type="text/javascript" src="self:res/jquery/jquery.form.js" />
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>ui</name>
+    <description>Add jQuery UI extension.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript" src="self:res/jquery/jquery-ui.js" />
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>form</name>
+    <description>Add jQuery form extension.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript" src="self:res/jquery/jquery.form.js" />
+        </head>
+      </html>
+    </return>
+  </function>
+</extension>
