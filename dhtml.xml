@@ -181,7 +181,7 @@
     <name>link</name>
     <description>Show a link that publishes a message on a channel when clicked.</description>
     <param name="text" type="str">Text shown in link.</param>
-    <param name="message" type="map">Message to publish on channel.</param>
+    <param name="message" type="any">Message to publish on channel.</param>
     <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
@@ -196,7 +196,7 @@
     <name>button</name>
     <description>Show a button that publishes a message on a channel when clicked.</description>
     <param name="text" type="str">Text shown in button.</param>
-    <param name="message" type="map">Message to publish on channel.</param>
+    <param name="message" type="any">Message to publish on channel.</param>
     <param name="publish" type="str" optional="true">Publish on channel. (default: "default")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">

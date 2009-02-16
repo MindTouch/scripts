@@ -74,7 +74,7 @@
     <name>publish</name>
     <description>Publish a message on a channel.</description>
     <param name="channel" type="str">Channel to publish mesage on.</param>
-    <param name="message" type="map">Message to send.</param>
+    <param name="message" type="any">Message to send.</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <tail>
