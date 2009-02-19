@@ -160,6 +160,25 @@
             }
           </script>
           <script type="text/javascript">DekiWiki.subscribe(<eval:js>args.subscribe ?? 'default'</eval:js>, null, dhtml_table_message_to_row, { id: <eval:js>@id</eval:js>, columns: <eval:js>args.columns</eval:js>});</script>
+          <style type="text/css">
+            .feedtable {
+                border:1px solid #999;
+                line-height:1.5em;
+                overflow:hidden;
+                width:100%;
+            }
+            .feedtable th {
+                background-color:#ddd;
+                border-bottom:1px solid #999;
+                font-size:14px;
+            }
+            .feedtable tr {
+                background-color:#FFFFFF;
+            }
+            .feedtable tr.feedroweven td {
+                background-color:#ededed;
+            }
+          </style>
         </head>
         <body>
           <table border="0" cellpadding="0" cellspacing="0" class="feedtable sortable">
@@ -237,6 +256,36 @@
             var id = DekiWiki.hasValue(m.id, <eval:js>args.id ?? null</eval:js>);
             if(id) DekiWiki.$('#' + id).toggle(DekiWiki.hasValue(m.speed, <eval:js>args.speed ?? null</eval:js>));
           }, null);</script>
+        </head>
+      </html>
+    </return>
+  </function>
+
+  <function>
+    <name>tablestyles</name>
+    <description>Define 'feedtable' styles.</description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <style type="text/css">
+            .feedtable {
+                border:1px solid #999;
+                line-height:1.5em;
+                overflow:hidden;
+                width:100%;
+            }
+            .feedtable th {
+                background-color:#ddd;
+                border-bottom:1px solid #999;
+                font-size:14px;
+            }
+            .feedtable tr {
+                background-color:#FFFFFF;
+            }
+            .feedtable tr.feedroweven td {
+                background-color:#ededed;
+            }
+          </style>
         </head>
       </html>
     </return>
