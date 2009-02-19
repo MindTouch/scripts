@@ -85,4 +85,20 @@
       </html>
     </return>
   </function>
+
+  <function>
+    <name>publishmany</name>
+    <description>Publish a list of messages on a channel.</description>
+    <param name="channel" type="str">Channel to publish mesages on.</param>
+    <param name="messages" type="list">List of messages to send.</param>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <tail>
+          <script type="text/javascript">
+            <eval:foreach var="message" in="args.messages">DekiWiki.publish(<eval:js>args.channel</eval:js>, <eval:js>message</eval:js>);</eval:foreach>
+          </script>
+        </tail>
+      </html>
+    </return>
+  </function>
 </extension>
