@@ -1,0 +1,29 @@
+﻿<extension>
+  <title>MindTouch Deki AJAX API Extension</title>
+  <label>Deki API</label>
+  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <description>Include Deki AJAX API extension.</description>
+
+  <requires host="MindTouch Deki 9.02" />
+
+  <function>
+    <name>dekiapi</name>
+    <description></description>
+    <return>
+      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+        <head>
+          <script type="text/javascript">
+            if(typeof Deki.Env == 'undefined') {
+              Deki.Env = {
+                SiteApi: <eval:js>site.uri &amp; "@api" &amp; "deki"</eval:js>,
+                PageApi: <eval:js>site.uri &amp; "@api" &amp; "deki" &amp; "pages" &amp; page.id</eval:js>,
+                UserApi: <eval:js>site.uri &amp; "@api" &amp; "deki" &amp; "users" &amp; user.id</eval:js>
+              };
+            }
+          </script>
+          <script type="text/javascript" src="self:res/deki/deki.api.js" />
+        </head>
+      </html>
+    </return>
+  </function>
+</extension>
