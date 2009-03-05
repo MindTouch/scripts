@@ -100,6 +100,22 @@ if(typeof Deki.Api == 'undefined') {
 				contentType: 'text/plain;', 
 				success: success 
 			});
-		}
+		},
+		
+		Poll: function(interval, containerId, uri) {
+	        Deki.$.get(uri, { containerId: containerId }, function(data){
+                Deki.Api._callback(interval, containerId, uri, data);
+            });
+        },
+        
+        _callback :function (interval, id, uri, data) {
+            if( data ) {
+                console.log("got some content");
+                Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
+            }
+            setTimeout(function() {
+                Deki.Api.Poll(interval, id, uri);
+            },interval);
+        }
 	};
 }
