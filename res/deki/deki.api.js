@@ -110,7 +110,6 @@ if(typeof Deki.Api == 'undefined') {
         
         _callback :function (interval, id, uri, data) {
             if( data ) {
-                console.log("got some content");
                 Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
             }
             setTimeout(function() {
