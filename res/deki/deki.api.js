@@ -36,11 +36,7 @@ if(typeof Deki.Api == 'undefined') {
 				page.language = doc.find('language').text();
 				// TODO: subpages, inbound, outbound, revisions, comments, properties, tags, files, contents
 				
-				if(typeof callback == 'string') {
-					Deki.publish(callback, page);
-				} else if(typeof callback == 'function') {
-					callback(page);
-				}
+				Deki.Api.CallOrPublish(callback, page);
 			}, 'xml');
 		},
 		
@@ -79,11 +75,13 @@ if(typeof Deki.Api == 'undefined') {
 		},
 		
 		Reload: function(dom, params) {
+			if(typeof dom == 'string') dom = Deki.$(dom);
+			else if(typeof dom.eq != 'function') dom = Deki.$(dom);
 			var uri = Deki.Env.PageApi + '/contents?format=xhtml&include=true';
 			if(params) {
 				uri += '&' + Deki.$.param(params);
 			}
-			Deki.$(dom).load(uri + ' #' + dom.id);
+			dom.load(uri + ' #' + dom.get(0).id);
 		},
 		
 		PostText: function(uri, data, success) {
@@ -102,19 +100,93 @@ if(typeof Deki.Api == 'undefined') {
 			});
 		},
 		
+		CreatePageProperty: function(page_api, key, value, success /* fn(xhr) */, error /* fn(status, text, xhr) */ ) {
+			page_api = page_api || Deki.Env.PageApi;
+			Deki.$.ajax({ 
+				url: page_api + '/properties',
+				type: 'POST', 
+				data: value, 
+				contentType: 'text/plain',
+				processData: false,
+				beforeSend: function(xhr) { 
+					xhr.setRequestHeader('Slug', key); 
+					return true; 
+				},
+				complete: function(xhr) {
+					if(xhr.status == 200) {
+						Deki.Api.CallOrPublish(success, { etag: xhr.getResponseHeader('ETag'), xhr: xhr });
+					} else Deki.Api.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+				}
+			});
+		},
+		
+		ReadPageProperty: function(page_api, key, success /* fn(value, href, etag, xhr) */, error /* fn(status, text, xhr) */) {
+			page_api = page_api || Deki.Env.PageApi;
+			var uri = page_api + '/properties?dream.out.format=json&names=' + Deki.url.encode(key);
+			Deki.$.ajax({
+				url: uri, 
+				type: 'GET',
+				cache: false,
+				complete: function(xhr) {
+					if(xhr.status == 200) {
+						var data = eval('(' + xhr.responseText + ')');
+						var href = data.property && data.property.contents['@href'];
+						if(href) {
+							Deki.$.ajax({
+								url: href, 
+								type: 'GET',
+								cache: false,
+								complete: function(xhr) {
+									if(xhr.status == 200) Deki.Api.CallOrPublish(success, { value: xhr.responseText, href: href, etag: xhr.getResponseHeader('ETag'), xhr: xhr });
+									else Deki.Api.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+								}
+							}); 
+						} else Deki.Api.CallOrPublish(success, { value: null, href: null, etag: null, xhr: xhr })
+					} else Deki.Api.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+				}
+			});
+
+		},
+		
+		UpdatePageProperty: function(property_api, value, etag, success /* fn(xhr) */, error /* fn(status, text, xhr) */ ) {
+			Deki.$.ajax({ 
+				url: property_api + '?dream.in.verb=PUT',
+				type: 'POST', 
+				data: value, 
+				contentType: 'text/plain',
+				processData: false,
+				beforeSend: function(xhr) { 
+					xhr.setRequestHeader('ETag', etag); 
+					return true; 
+				},
+				complete: function(xhr) {
+					if(xhr.status == 200) Deki.Api.CallOrPublish(success, { xhr: xhr })
+					else Deki.Api.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+				}
+			});
+		},
+		
 		Poll: function(interval, containerId, uri) {
-	        Deki.$.get(uri, { containerId: containerId }, function(data){
-                Deki.Api._callback(interval, containerId, uri, data);
-            });
-        },
-        
-        _callback :function (interval, id, uri, data) {
-            if( data ) {
-                Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
-            }
-            setTimeout(function() {
-                Deki.Api.Poll(interval, id, uri);
-            },interval);
-        }
+			Deki.$.get(uri, { containerId: containerId }, function(data) {
+				Deki.Api._callback(interval, containerId, uri, data);
+			});
+		},
+	
+		_callback: function (interval, id, uri, data) {
+			if(data) {
+				Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
+			}
+			setTimeout(function() {
+				Deki.Api.Poll(interval, id, uri);
+			}, interval);
+		},
+		
+		CallOrPublish: function(fn, arg) {
+			if(typeof fn == 'function') {
+				fn.call(null, arg);
+			} else if(typeof fn == 'string') {
+				Deki.publish(fn, arg);
+			}
+		}
 	};
 }
