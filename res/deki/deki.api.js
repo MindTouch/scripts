@@ -81,7 +81,7 @@ if(typeof Deki.Api == 'undefined') {
 			if(params) {
 				uri += '&' + Deki.$.param(params);
 			}
-			dom.load(uri + ' #' + dom.get(0).id);
+			dom.load(uri + ' #' + dom.get(0).id + " > *");
 		},
 		
 		PostText: function(uri, data, success) {
@@ -167,18 +167,18 @@ if(typeof Deki.Api == 'undefined') {
 		},
 		
 		Poll: function(interval, containerId, uri) {
-			Deki.$.get(uri, { containerId: containerId }, function(data) {
-				Deki.Api._callback(interval, containerId, uri, data);
-			});
-		},
-	
-		_callback: function (interval, id, uri, data) {
-			if(data) {
-				Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
-			}
-			setTimeout(function() {
-				Deki.Api.Poll(interval, id, uri);
-			}, interval);
+	        Deki.$.get(uri, { containerId: containerId }, function(data){
+                Deki.Api._callback(interval, containerId, uri, data);
+            });
+        },
+        
+        _callback :function (interval, id, uri, data) {
+            if( data ) {
+                Deki.$('#'+id).empty().append((new XMLSerializer()).serializeToString(data));
+            }
+            setTimeout(function() {
+                Deki.Api.Poll(interval, id, uri);
+            },interval);
 		},
 		
 		CallOrPublish: function(fn, arg) {
@@ -186,7 +186,7 @@ if(typeof Deki.Api == 'undefined') {
 				fn.call(null, arg);
 			} else if(typeof fn == 'string') {
 				Deki.publish(fn, arg);
-			}
+        }
 		}
 	};
 }
