@@ -79,7 +79,7 @@ if(typeof Deki.Api == 'undefined') {
 		},
 		
 		Reload: function(dom, params) {
-			var uri = Deki.Env.PageApi + '/contents?format=xhtml';
+			var uri = Deki.Env.PageApi + '/contents?format=xhtml&include=true';
 			if(params) {
 				uri += '&' + Deki.$.param(params);
 			}
