@@ -100,6 +100,17 @@ if(typeof Deki.Api == 'undefined') {
 			});
 		},
 		
+		PostMessage: function(page_api, subchannel, data, success) {
+			page_api = page_api || Deki.Env.PageApi;
+			Deki.$.ajax({ 
+				type: 'POST', 
+				url: Deki.Env.PageApi + '/message/' + subchannel, 
+				data: data, 
+				contentType: 'text/plain;', 
+				success: success 
+			});
+		},
+		
 		CreatePageProperty: function(page_api, key, value, success /* fn(xhr) */, error /* fn(status, text, xhr) */ ) {
 			page_api = page_api || Deki.Env.PageApi;
 			Deki.$.ajax({ 
