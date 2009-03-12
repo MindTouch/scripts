@@ -74,14 +74,14 @@ if(typeof Deki.Api == 'undefined') {
 			// use as content on UpdatePage
 		},
 		
-		Reload: function(dom, params) {
+		Reload: function(dom, params, callback) {
 			if(typeof dom == 'string') dom = Deki.$(dom);
 			else if(typeof dom.eq != 'function') dom = Deki.$(dom);
 			var uri = Deki.Env.PageApi + '/contents?format=xhtml&include=true';
 			if(params) {
 				uri += '&' + Deki.$.param(params);
 			}
-			dom.load(uri + ' #' + dom.get(0).id + " > *");
+			dom.load(uri + ' #' + dom.get(0).id + " > *", null, function() { Deki.Api.CallOrPublish(callback, {}); });
 		},
 		
 		PostText: function(uri, data, success) {
