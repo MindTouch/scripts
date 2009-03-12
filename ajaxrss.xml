@@ -11,7 +11,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
-          <script eval:src="'http://www.google.com/jsapi' .. (config['api-key'] ? '?key='..config['api-key'] : (config['maps-api-key'] ? '?key='..config['maps-api-key'] : ''))" type="text/javascript" />
+          <script eval:src="(string.startswith(__env.site.uri ?? '', 'https:', true) ? 'https' : 'http') .. '://www.google.com/jsapi' .. (config['api-key'] ? '?key='..config['api-key'] : (config['maps-api-key'] ? '?key='..config['maps-api-key'] : ''))" type="text/javascript" />
           <script type="text/javascript">google.load('feeds', '1');</script>
         </head>
         <body>
