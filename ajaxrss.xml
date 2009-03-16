@@ -7,7 +7,7 @@
     <name>ajaxrss</name>
     <description>Display an rss feed</description>
     <param name="feed" type="uri">feed uri (Atom or RSS)</param>
-    <param name="max" type="num" optional="true">max items to display (default: nil</param>
+    <param name="max" type="num" optional="true">max items to display (default: nil)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
