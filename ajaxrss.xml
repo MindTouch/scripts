@@ -2,7 +2,13 @@
   <title>MindTouch RSS Extension (customizable)</title> 
   <label>ajaxrss</label> 
   <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright> 
-  <description>This extension contains an easily customizable function for displaying RSS feeds.</description> 
+  <description>This extension contains an easily customizable function for displaying RSS feeds.</description>
+
+  <config>
+    <param name="api-key" type="str">Google API key for feed web-service.</param>
+    <param name="secure" type="str" optional="true">Always use https:// to load scripts from Google servers.</param>
+  </config>
+  
   <function>
     <name>ajaxrss</name>
     <description>Display an rss feed</description>
@@ -11,7 +17,7 @@
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
-          <script eval:src="(string.startswith(__env.site.uri ?? '', 'https:', true) ? 'https' : 'http') .. '://www.google.com/jsapi' .. (config['api-key'] ? '?key='..config['api-key'] : (config['maps-api-key'] ? '?key='..config['maps-api-key'] : ''))" type="text/javascript" />
+          <script eval:src="(((string.compare(config.secure ?? '', 'true', true) == 0) || string.startswith(__env.site.uri ?? '', 'https:', true)) ? 'https' : 'http') .. '://www.google.com/jsapi' .. (config['api-key'] ? '?key='..config['api-key'] : (config['maps-api-key'] ? '?key='..config['maps-api-key'] : ''))" type="text/javascript" />
           <script type="text/javascript">google.load('feeds', '1');</script>
         </head>
         <body>
