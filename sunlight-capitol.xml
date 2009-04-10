@@ -1,8 +1,8 @@
 <extension>
-  <title>Capital Words</title>
+  <title>Capitol Words</title>
   <copyright>Copyright (c) 2009, MindTouch, Inc.</copyright>
 
-  <namespace>capital</namespace>
+  <namespace>capitol</namespace>
 
   <function>
     <name>WordOfDay</name>
