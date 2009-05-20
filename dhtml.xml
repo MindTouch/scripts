@@ -76,16 +76,20 @@
           <body>
             <form eval:action="isuri ? args.publish : nil">
               <table eval:id="@id">
-                <eval:foreach var="input" in="args.inputs" test="!input.hidden">
-                  <tr>
-                    <td><eval:expr>input.label ?? '\u00A0'</eval:expr></td>
-                    <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
-                  </tr>
+                <eval:foreach var="input" in="args.inputs">
+                  <eval:if test="!input.hidden">
+                    <tr>
+                      <td><eval:expr>input.label ?? '\u00A0'</eval:expr></td>
+                      <td><input eval:name="input.field" eval:value="input.value" eval:size="input.size ?? 16" /></td>
+                    </tr>
+                  </eval:if>
                 </eval:foreach>
                 <tr>
                   <td>
-                    <eval:foreach var="input" in="args.inputs" test="input.hidden">
-                      <input eval:name="input.field" eval:value="input.value" type="hidden" />
+                    <eval:foreach var="input" in="args.inputs">
+                      <eval:if test="input.hidden">
+                        <input eval:name="input.field" eval:value="input.value" type="hidden" />
+                      </eval:if>
                     </eval:foreach>&#xA0;</td>
                   <td align="right">
                     <eval:if test="isuri">
