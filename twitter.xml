@@ -13,26 +13,40 @@
     <name>all</name>
     <description>Embed Twitter feed of user and friends.</description>
     <param name="name" type="str">Twitter user name.</param>
-    <param name="width" type="num" optional="true">Control width. (default: 200)</param>
-    <param name="height" type="num" optional="true">Control height. (default: 400)</param>
-    <param name="oddbubblecolor" type="str" optional="true">Color for bubbles on odd rows. (default: "0xFFFFCE")</param>
-    <param name="evenbubblecolor" type="str" optional="true">Color for bubbles on even rows. (default: "0xFFDAAA")</param>
-    <param name="oddtextcolor" type="str" optional="true">Text color for odd rows. (default: "0x4A396D")</param>
-    <param name="eventextcolor" type="str" optional="true">Text color for event rows. (default: "0xBA0909")</param>
-    <param name="backgroundcolor" type="str" optional="true">Background color. (default: "0x111B1C")</param>
+    <param name="width" type="num" optional="true">Control width. (default: 290)</param>
+    <param name="height" type="num" optional="true">Control height. (default: 350)</param>
+    <param name="theme" type="str" optional="true">Control theme. (one of "smooth", "velvetica", "revo"; default: "smooth")</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
-          <embed src="http://static.twitter.com/flash/twitter_timeline_badge.swf" 
-                 eval:flashvars="'user_id=' .. string.match(web.text('http://twitter.com/' .. args.name, '//_:link[@type=\'application/rss+xml\']/@href' ?? ''), '.*/(\\d+).rss') .. '&amp;color1=' .. (args.oddbubblecolor ?? '0xFFFFCE') .. '&amp;color2=' .. (args.evenbubblecolor ?? '0xFFDAAA') .. '&amp;textColor1=' .. (args.oddtextcolor ?? '0x4A396D') .. '&amp;textColor2=' .. (args.eventextcolor ?? '0xBA0909' ) .. '&amp;backgroundColor=' .. (args.backgroundcolor ?? '0x111B1C') .. '&amp;textSize=' .. (args.textsize ?? 10)" 
-                 eval:width="web.size(args.width ?? 200)" 
-                 eval:height="web.size(args.height ?? 400)" 
-                 quality="high" 
-                 name="twitter_timeline_badge" 
-                 align="middle" 
-                 type="application/x-shockwave-flash" 
-                 allowScriptAccess="always" 
-                 pluginspage="http://www.adobe.com/go/getflashplayer" />
+          <object 
+            classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" 
+            eval:width="args.width ?? 290" 
+            eval:height="args.height ?? 350" 
+            id="TwitterWidget" 
+            align="middle"
+          >
+            <param name="allowScriptAccess" value="always" />
+            <param name="allowFullScreen" value="false" />
+            <param name="movie" value="http://static.twitter.com/flash/widgets/profile/TwitterWidget.swf" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#000000" />
+            <param name="FlashVars" eval:value="'userID=' .. string.trim(args.name) .. '&amp;styleURL=http://static.twitter.com/flash/widgets/profile/' .. string.trim(args.theme ?? 'smooth') .. '.xml'" />
+            <embed 
+                src="http://static.twitter.com/flash/widgets/profile/TwitterWidget.swf" 
+                quality="high" 
+                bgcolor="#000000" 
+                eval:width="args.width ?? 290" 
+                eval:height="args.height ?? 350" 
+                name="TwitterWidget" 
+                align="middle" 
+                allowScriptAccess="sameDomain" 
+                allowFullScreen="false" 
+                type="application/x-shockwave-flash" 
+                pluginspage="http://www.macromedia.com/go/getflashplayer" 
+                eval:FlashVars="'userID=' .. string.trim(args.name) .. '&amp;styleURL=http://static.twitter.com/flash/widgets/profile/' .. string.trim(args.theme ?? 'smooth') .. '.xml'"/>
+          </object>
         </body>
       </html>
     </return>
@@ -49,7 +63,7 @@
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
           <embed src="http://twitter.com/flash/twitter_badge.swf"
-                 eval:flashvars="'id=' .. string.match(web.text('http://twitter.com/' .. args.name, '//_:link[@type=\'application/rss+xml\']/@href' ?? ''), '.*/(\\d+).rss') .. '&amp;type=user&amp;color1=' .. (args.backgroundcolor ?? '0x111B1C')"
+                 eval:flashvars="'id=' .. string.trim(args.name) .. '&amp;type=user&amp;color1=' .. (args.backgroundcolor ?? '0x111B1C')"
                  quality="high"
                  eval:width="web.size(args.width ?? 176)"
                  eval:height="web.size(args.height ?? 176)"
