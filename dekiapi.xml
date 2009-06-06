@@ -21,7 +21,8 @@
               };
             }
           </script>
-          <script type="text/javascript" src="self:res/deki/deki.api.js" />
+          <script type="text/javascript" src="self:res/deki/mindtouch.web.js" />
+          <script type="text/javascript" src="self:res/deki/mindtouch.deki.js" />
         </head>
       </html>
     </return>
