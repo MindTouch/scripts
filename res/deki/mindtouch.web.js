@@ -35,7 +35,7 @@ if(typeof MindTouch == 'undefined') {
 //--- Define MindTouch.Web Namespace ---
 if(typeof MindTouch.Web == 'undefined') {
 	MindTouch.Web = {
-		Version: { major: 0, minor: 1 },
+		Version: { major: 0, minor: 1 }
 	};
 }
 
