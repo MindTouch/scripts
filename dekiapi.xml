@@ -8,7 +8,8 @@
 
   <function>
     <name>dekiapi</name>
-    <description></description>
+    <description>Include functions for Deki JavaScript API.</description>
+    <param name="version" type="str" optional="true">Version of Deki JavaScript API to use. (one of '0.1', '0.2'; default: most recent)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>
@@ -21,29 +22,13 @@
               };
             }
           </script>
-          <script type="text/javascript" src="self:res/deki/deki.api.js" />
-        </head>
-      </html>
-    </return>
-  </function>
-
-  <function>
-    <name>dekiapi</name>
-    <description></description>
-    <return>
-      <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <head>
-          <script type="text/javascript">
-            if(typeof Deki.Env == 'undefined') {
-              Deki.Env = {
-                SiteApi: <eval:js>site.uri &amp; "@api" &amp; "deki"</eval:js>,
-                PageApi: <eval:js>site.uri &amp; "@api" &amp; "deki" &amp; "pages" &amp; page.id</eval:js>,
-                UserApi: <eval:js>site.uri &amp; "@api" &amp; "deki" &amp; "users" &amp; user.id</eval:js>
-              };
-            }
-          </script>
-          <script type="text/javascript" src="self:res/deki/mindtouch.web.js" />
-          <script type="text/javascript" src="self:res/deki/mindtouch.deki.js" />
+          <eval:if test="$version is nil || $version == '0.2'">
+            <script type="text/javascript" src="self:res/deki/mindtouch.web.js" />
+            <script type="text/javascript" src="self:res/deki/mindtouch.deki.js" />
+          </eval:if>
+          <eval:elseif test="$version == '0.1'">
+            <script type="text/javascript" src="self:res/deki/deki.api.js" />
+          </eval:elseif>
         </head>
       </html>
     </return>
