@@ -91,9 +91,13 @@ if(typeof MindTouch.Deki == 'undefined') {
 			
 			// set the page_api to the current page
 			var page_api = Deki.Env.PageApi + '/contents?format=xhtml&include=true';
-			if(params) {
-				page_api += '&' + $.param(params);
-			}
+			
+			// add dummy parameter to avoid caching issues in some browsers (e.g. IE)
+			params = params || { };
+			params.nocache = new Date().getTime();
+			page_api += '&' + $.param(params);
+			
+			// issue AJAX call to reload part of the page
 			var _this = this;
 			dom.load(page_api + ' #' + dom.get(0).id + " > *", null, function() { _this.CallOrPublish(callback, {}); });
 		},
