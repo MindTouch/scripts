@@ -57,14 +57,21 @@ if(typeof MindTouch.Web.Get == 'undefined') {
 			beforeSend: function(xhr) {
 				if(headers) {
 					for(var header in headers) {
-						xhr.setRequestHeader(header, headers[header]);
+						var header_value = headers[header];
+						if((typeof header_value != 'object') && (typeof header_value != 'function')) {
+							xhr.setRequestHeader(header, header_value);
+						}
 					}
 				}
 				return true;
 			},
 
 			// set callback
-			complete: callback
+			complete: callback || function(xhr) { 
+				if(!MindTouch.Web.IsSuccessful(xhr)) { 
+					alert('AJAX ' + ((headers && headers['X-HTTP-Method-Override']) || 'GET') + ' request failed for ' + uri + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')'); 
+				} 
+			}
 		});
 	};
 }
@@ -90,15 +97,30 @@ if(typeof MindTouch.Web.Post == 'undefined') {
 			beforeSend: function(xhr) {
 				if(headers) {
 					for(var header in headers) {
-						xhr.setRequestHeader(header, headers[header]);
+						var header_value = headers[header];
+						if((typeof header_value != 'object') && (typeof header_value != 'function')) {
+							xhr.setRequestHeader(header, header_value);
+						}
 					}
 				}
 				return true;
 			},
 
 			// set callback
-			complete: callback
+			complete: callback || function(xhr) { if(!MindTouch.Web.IsSuccessful(xhr)) { alert('AJAX ' + ((headers && headers['X-HTTP-Method-Override']) || 'POST') + ' request failed for ' + uri + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')'); } }
 		});
+	};
+}
+
+if(typeof MindTouch.Web.Head == 'undefined') {
+	MindTouch.Web.Head = function(uri, headers, callback /* fn(xhr) */) {
+	
+		// set http method override header, which allows us to tunnel the request
+		headers = headers || { };
+		headers['X-HTTP-Method-Override'] = 'HEAD';
+
+		// tunnel HEAD through a GET request since most browsers don't support HEAD
+		this.Get(uri, value, mimetype, headers, callback);
 	};
 }
 
@@ -123,5 +145,65 @@ if(typeof MindTouch.Web.Delete == 'undefined') {
 
 		// tunnel DELETE through a POST request since most browsers don't support DELETE
 		this.Post(uri, null, null, headers, callback);
+	};
+}
+
+if(typeof MindTouch.Web.IsSuccessful == 'undefined') {
+	MindTouch.Web.IsSuccessful = function(xhr) {
+		return (xhr.status >= 200 && xhr.status < 300) || (xhr.status == 304 /* Not Modified */);
+	};
+}
+
+if(typeof MindTouch.Web.GetStatusText == 'undefined') {
+	MindTouch.Web.GetStatusText = function(status) {
+		switch(status) {
+		case 100: return 'Continue';
+		case 101: return 'Switching Protocols';
+		case 200: return 'Ok';
+		case 201: return 'Created';
+		case 202: return 'Accepted';
+		case 203: return 'Non-Authoritative Information';
+		case 204: return 'No Content';
+		case 205: return 'Reset Content';
+		case 206: return 'Partial Content';
+		case 207: return 'Multi-Status';
+		case 300: return 'Multiple Choices';
+		case 301: return 'Moved Permanently';
+		case 302: return 'Found';
+		case 303: return 'See Other';
+		case 304: return 'Not Modified';
+		case 305: return 'Use Proxy';
+		case 306: return '(Reserved)';
+		case 307: return 'Temporary Redirect';
+		case 400: return 'Bad Request';
+		case 401: return 'Unauthorized';
+		case 402: return 'Payment Required';
+		case 403: return 'Forbidden';
+		case 404: return 'Not Found';
+		case 405: return 'Method Not Allowed';
+		case 406: return 'Not Acceptable';
+		case 407: return 'Proxy Authentication';
+		case 408: return 'Request Timeout';
+		case 409: return 'Conflict';
+		case 410: return 'Gone';
+		case 411: return 'Length Required';
+		case 412: return 'Precondition Failed';
+		case 413: return 'Request Entity Too Large';
+		case 414: return 'Request-URI Too Long';
+		case 415: return 'Unsupported Media Type';
+		case 416: return 'Requested Range Not Satisfiable';
+		case 417: return 'Expectation Failed';
+		case 422: return 'Unprocessable Entity';
+		case 423: return 'Locked';
+		case 424: return 'Failed Dependency';
+		case 500: return 'Internal Server Error';
+		case 501: return 'Not Implemented';
+		case 502: return 'Bad Gateway';
+		case 503: return 'Service Unavailable';
+		case 504: return 'Gateway Timeout';
+		case 505: return 'HTTP Version Not Supported';
+		case 507: return 'Insufficient Storage';
+		}
+		return '(Unknown)';
 	};
 }

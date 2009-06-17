@@ -47,7 +47,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			// make GET request to fetch page contents
 			var _this = this;
 			MindTouch.Web.Get(page_api, null, function(xhr) {
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 				
 					// check if response has XML or text format
 					var mimetype = xhr.getResponseHeader("content-type");
@@ -57,9 +57,9 @@ if(typeof MindTouch.Deki == 'undefined') {
 						_this.CallOrPublish(success, { text: xhr.responseText, xhr: xhr });
 					}
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to read the page at ' + page_api + ' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to read the page at ' + page_api + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -73,12 +73,12 @@ if(typeof MindTouch.Deki == 'undefined') {
 			// make GET request to fetch page contents
 			var _this = this;
 			MindTouch.Web.Post(page_api, contents, 'text/plain', null, function(xhr) {
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { xhr: xhr });
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to update the page at ' + page_api + ' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to update the page at ' + page_api + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -138,12 +138,12 @@ if(typeof MindTouch.Deki == 'undefined') {
 			// make POST request to create property
 			var _this = this;
 			MindTouch.Web.Post(properties_api, value, 'text/plain', { Slug: name }, function(xhr) {
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { etag: xhr.getResponseHeader('ETag'), xhr: xhr });
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to create the property \'' + name + '\' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to create the property \'' + name + '\' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -161,7 +161,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			MindTouch.Web.Get(properties_api + '?dream.out.format=json&names=' + Deki.url.encode(name), null, function(xhr) {
 			
 				// check response status code
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 				
 					// evaluate response JSON data
 					var data = eval('(' + xhr.responseText + ')');
@@ -181,9 +181,9 @@ if(typeof MindTouch.Deki == 'undefined') {
 						_this.CallOrPublish(success, { value: null, href: null, etag: null, xhr: xhr });
 					}
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to read property \'' + name + '\' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to read property \'' + name + '\' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -191,12 +191,12 @@ if(typeof MindTouch.Deki == 'undefined') {
 		UpdateProperty: function(property_api, value, etag, success /* fn({ xhr }) */, error /* fn({ status, text, xhr }) */ ) {
 			var _this = this;		
 			MindTouch.Web.Put(property_api, value, 'text/plain', { ETag: etag }, function(xhr) {
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { xhr: xhr })
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to update the property at ' + property_api + ' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to update the property at ' + property_api + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -206,12 +206,12 @@ if(typeof MindTouch.Deki == 'undefined') {
 			MindTouch.Web.Delete(property_api, null, function(xhr) {
 
 				// check the response status code
-				if(_this._isSuccess(xhr)) {
+				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { xhr: xhr })
 				} else if(error) {
-					_this.CallOrPublish(error, { status: xhr.status, text: xhr.statusText, xhr: xhr });
+					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
-					alert('An error occurred trying to delete the property at ' + property_api + ' (status: ' + xhr.status + ' - ' + xhr.statusText + ')');
+					alert('An error occurred trying to delete the property at ' + property_api + ' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
 				}
 			});
 		},
@@ -273,10 +273,6 @@ if(typeof MindTouch.Deki == 'undefined') {
 			setTimeout(function() {
 				_this.Poll(interval, id, uri);
 			}, interval);
-		},
-		
-		_isSuccess: function(xhr) {
-			return (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 /* Not Modified */;
 		}
 	};
 }
