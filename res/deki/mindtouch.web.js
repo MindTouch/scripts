@@ -56,7 +56,7 @@ if(typeof MindTouch.Web.Get == 'undefined') {
 			// add custom header which checks if the property was modified since we read it
 			beforeSend: function(xhr) {
 				if(headers) {
-					$.each(function(header, header_value) {
+					$.each(headers, function(header, header_value) {
 						if((typeof header_value != 'object') && (typeof header_value != 'function')) {
 							xhr.setRequestHeader(header, header_value);
 						}
@@ -95,7 +95,7 @@ if(typeof MindTouch.Web.Post == 'undefined') {
 			// add custom header which checks if the property was modified since we read it
 			beforeSend: function(xhr) {
 				if(headers) {
-					$.each(function(header, header_value) {
+					$.each(headers, function(header, header_value) {
 						if((typeof header_value != 'object') && (typeof header_value != 'function')) {
 							xhr.setRequestHeader(header, header_value);
 						}
