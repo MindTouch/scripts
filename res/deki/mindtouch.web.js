@@ -152,6 +152,19 @@ if(typeof MindTouch.Web.IsSuccessful == 'undefined') {
 	};
 }
 
+if(typeof MindTouch.Web.GetETag == 'undefined') {
+	MindTouch.Web.GetETag = function(xhr) {
+	    var etag = xhr.getResponseHeader('ETag');
+    	
+	    // fix etag if content encoding was used
+	    var encoding = xhr.getResponseHeader('Content-Encoding');
+	    if(encoding && (encoding.length > 0)) {
+	        etag = etag.replace('-' + encoding, '');
+	    }
+	    return etag;
+	};
+}
+
 if(typeof MindTouch.Web.GetStatusText == 'undefined') {
 	MindTouch.Web.GetStatusText = function(status) {
 		switch(status) {

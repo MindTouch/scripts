@@ -50,7 +50,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 				if(MindTouch.Web.IsSuccessful(xhr)) {
 				
 					// check if response has XML or text format
-					var mimetype = xhr.getResponseHeader("content-type");
+					var mimetype = xhr.getResponseHeader('Content-Type');
 					if(mimetype && (mimetype.indexOf('xml') >= 0)) {
 						_this.CallOrPublish(success, { xml: xhr.responseXML, xhr: xhr });
 					} else {
@@ -99,7 +99,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			
 			// issue AJAX call to reload part of the page
 			var _this = this;
-			dom.load(page_api + ' #' + dom.get(0).id + " > *", null, function() { _this.CallOrPublish(callback, {}); });
+			dom.load(page_api + ' #' + dom.get(0).id + ' > *', null, function() { _this.CallOrPublish(callback, {}); });
 		},
 	
 		CreatePageProperty: function(page_api, name, value, success /* fn({ etag, xhr }) */, error /* fn({ status, text, xhr }) */ ) {
@@ -139,7 +139,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			var _this = this;
 			MindTouch.Web.Post(properties_api, value, 'text/plain', { Slug: name }, function(xhr) {
 				if(MindTouch.Web.IsSuccessful(xhr)) {
-					_this.CallOrPublish(success, { etag: xhr.getResponseHeader('ETag'), xhr: xhr });
+					_this.CallOrPublish(success, { etag: MindTouch.Web.GetETag(xhr), xhr: xhr });
 				} else if(error) {
 					_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
 				} else {
@@ -169,14 +169,36 @@ if(typeof MindTouch.Deki == 'undefined') {
 					// read property location
 					var href = data.property && data.property.contents['@href']
 					
-					// check we the property was found
+					// check if the property was found
 					if(href) {
 					
-						// TODO (steveb): fix etag value if need be
-						var etag = data.property['@etag'];;
+						// read result
+						var value = data.property.contents['#text'] || '';
 						
-						var value = data.property && data.property.contents['#text'];
-						_this.CallOrPublish(success, { value: value, href: href, etag: etag, xhr: xhr });
+						// check if property must be loaded separately because it's too large to fit into the results list
+						var length = data.property.contents['@size'];
+						if((value.length == 0) && (!length || parseInt(length) > 0)) {
+						
+							// make GET request on property href
+							MindTouch.Web.Get(href, null, function(xhr) {
+			
+								// check response status code
+								if(MindTouch.Web.IsSuccessful(xhr)) {
+								
+									// read result
+									var value = xhr.responseText;
+									var etag = MindTouch.Web.GetETag(xhr);
+									_this.CallOrPublish(success, { value: value, href: href, etag: etag, xhr: xhr });
+								} else if(error) {
+									_this.CallOrPublish(error, { status: xhr.status, text: MindTouch.Web.GetStatusText(xhr.status), xhr: xhr });
+								} else {
+									alert('An error occurred trying to read large property \'' + name + '\' (status: ' + xhr.status + ' - ' + MindTouch.Web.GetStatusText(xhr.status) + ')');
+								}
+							});
+						} else {
+							var etag = data.property['@etag'];
+							_this.CallOrPublish(success, { value: value, href: href, etag: etag, xhr: xhr });
+						}
 					} else {
 						_this.CallOrPublish(success, { value: null, href: null, etag: null, xhr: xhr });
 					}
@@ -228,15 +250,15 @@ if(typeof MindTouch.Deki == 'undefined') {
 		EditTimeNow: function() {
 			var d = new Date();
 			var month = d.getUTCMonth() + 1;
-			if(month < 10) month = "0" + month;
+			if(month < 10) month = '0' + month;
 			var day = d.getUTCDate();
-			if(day < 10) day = "0" + day;
+			if(day < 10) day = '0' + day;
 			var hours = d.getUTCHours();
-			if(hours < 10) hours = "0" + hours;
+			if(hours < 10) hours = '0' + hours;
 			var mins = d.getUTCMinutes();
-			if(mins < 10) mins = "0" + mins;
+			if(mins < 10) mins = '0' + mins;
 			var secs = d.getUTCSeconds();
-			if(secs < 10) secs = "0" + secs;
+			if(secs < 10) secs = '0' + secs;
 			return d.getUTCFullYear() + month + day + hours + mins + secs;
 		},
 
