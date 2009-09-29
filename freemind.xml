@@ -1,13 +1,13 @@
 <extension>
 	<title>Freemind Viewer</title>
-	<description>Add Freemind Viewer to a Deki Page</description>
+	<description>Embed a Freemind Viewer to a MindTouch Page</description>
 	<namespace>freemind</namespace>
 	<function>
 		<name>viewer</name>
-		<description>Embeds a Freemind Map in a Deki Page</description>
+		<description>Embed a Freemind Map in a MindTouch Page.</description>
 		<param name="uri" type="str">The location of your Freemind Map.</param>
-		<param name="width" type="num" optional="true">Widget width. (default: 482)</param>
-		<param name="height" type="num" optional="true">Widget height. (default: 387)</param>
+		<param name="width" type="num" optional="true">Viewer width. (default: 482)</param>
+		<param name="height" type="num" optional="true">Viewer height. (default: 387)</param>
 
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
