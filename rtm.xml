@@ -9,7 +9,7 @@
 
   <function>
 		<name>gadget</name>
-		<description>Adds the Remeber The Milk gadget into Deki</description>    	
+		<description>Adds the Remeber The Milk gadget into MindTouch</description>    	
 		<return>
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head>

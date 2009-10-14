@@ -7,7 +7,7 @@
   <uri.logo>http://scripts.mindtouch.com/logos/twitter-logo.png</uri.logo>
   <namespace>twitter</namespace>
 
-  <requires host="MindTouch Deki 1.9.0b" />
+  <requires host="MindTouch Core 1.9.0b" />
   
   <function>
     <name>all</name>

@@ -1,5 +1,5 @@
 /*
- * MindTouch Deki - enterprise collaboration and integration platform
+ * MindTouch Core - open source enterprise collaborative networking
  * Copyright © 2006-2009 MindTouch, Inc.
  * www.mindtouch.com  oss@mindtouch.com
  *

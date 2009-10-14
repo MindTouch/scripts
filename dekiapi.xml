@@ -1,15 +1,15 @@
 ﻿<extension>
-  <title>MindTouch Deki AJAX API Extension</title>
-  <label>Deki API</label>
+  <title>MindTouch AJAX API Extension</title>
+  <label>MindTouch API</label>
   <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
-  <description>Include Deki AJAX API extension.</description>
+  <description>Include AJAX API extension.</description>
 
-  <requires host="MindTouch Deki 9.02" />
+  <requires host="MindTouch Core 9.02" />
 
   <function>
     <name>dekiapi</name>
-    <description>Include functions for Deki JavaScript API.</description>
-    <param name="version" type="str" optional="true">Version of Deki JavaScript API to use. (one of '0.1', '0.2'; default: most recent)</param>
+    <description>Include functions for MindTouch JavaScript API.</description>
+    <param name="version" type="str" optional="true">Version of MindTouch JavaScript API to use. (one of '0.1', '0.2'; default: most recent)</param>
     <return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <head>

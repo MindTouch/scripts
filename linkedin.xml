@@ -7,7 +7,7 @@
   <uri.logo>http://scripts.mindtouch.com/logos/linkedin-logo.png</uri.logo>
   <namespace>linkedin</namespace>
 
-  <requires host="MindTouch Deki 8.05.1" />
+  <requires host="MindTouch Core 8.05.1" />
   
   <function>
     <name>CompanyInsider</name>

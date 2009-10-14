@@ -6,7 +6,7 @@
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Syntax_Highlighter_2.0</uri.help>
   <namespace>syntax</namespace>
 
-  <requires host="MindTouch 9.02" />
+  <requires host="MindTouch Core 9.02" />
 
   <config>
     <param name="theme" type="str" default="'Default'">Select color theme for highlighted text. (one of 'Default', 'Django', 'Emacs', 'FadeToGrey', 'Midnight', or 'RDark')</param>

@@ -6,7 +6,7 @@
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/jQuery</uri.help>
   <namespace>jquery</namespace>
 
-  <requires host="MindTouch Deki 9.02" />
+  <requires host="MindTouch Core 9.02" />
 
   <function>
     <name>all</name>

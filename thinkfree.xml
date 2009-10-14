@@ -7,7 +7,7 @@
   <uri.logo>http://scripts.mindtouch.com/logos/thinkfree-logo.png</uri.logo>
   <namespace>thinkfree</namespace>
 
-  <requires host="MindTouch Deki 8.05.1" />
+  <requires host="MindTouch Core 8.05.1" />
 
   <function>
     <name>viewer</name>
