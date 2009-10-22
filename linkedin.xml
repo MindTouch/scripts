@@ -3,7 +3,7 @@
   <label>LinkedIn</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding LinkedIn widgets.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/LinkedIn</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/LinkedIn</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/linkedin-logo.png</uri.logo>
   <namespace>linkedin</namespace>
 

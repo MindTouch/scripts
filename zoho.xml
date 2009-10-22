@@ -3,7 +3,7 @@
   <label>Zoho</label>
   <description>This extension contains functions for embedding Zoho applications.</description>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Zoho</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Zoho</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/zoho.png</uri.logo>
   <namespace>zoho</namespace>
 

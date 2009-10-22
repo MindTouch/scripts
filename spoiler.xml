@@ -3,7 +3,7 @@
   <label>Spoiler</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains a function for embedding spoiler tags.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Spoiler</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Spoiler</uri.help>
 
   <function>
     <name>spoiler</name>

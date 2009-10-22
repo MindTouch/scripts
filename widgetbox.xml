@@ -3,7 +3,7 @@
   <label>WidgetBox</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding WidgetBox widgets.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/WidgetBox</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/WidgetBox</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/widgetbox-logo.png</uri.logo>
   <namespace>widgetbox</namespace>
 

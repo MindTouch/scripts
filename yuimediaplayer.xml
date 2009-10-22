@@ -1,7 +1,7 @@
 <extension>
   <title>YUI Media Player</title>
   <label>YUI Media Player</label>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/YUI_Media_Player</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/YUI_Media_Player</uri.help>
   <namespace>yui</namespace>
   
   <function>

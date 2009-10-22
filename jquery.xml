@@ -3,7 +3,7 @@
   <label>jQuery</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>Include jQuery plug-ins.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/jQuery</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/jQuery</uri.help>
   <namespace>jquery</namespace>
 
   <requires host="MindTouch Core 9.02" />

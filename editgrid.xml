@@ -3,7 +3,7 @@
   <label>EdigGrid</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding EditGrid collaborative spreadsheets.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Lightbox</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Lightbox</uri.help>
   <namespace>editgrid</namespace>
   
 	<function>

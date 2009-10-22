@@ -3,7 +3,7 @@
   <label>Lightbox</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for lightbox effects.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Lightbox</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Lightbox</uri.help>
   
   <function>
     <name>lightbox</name>

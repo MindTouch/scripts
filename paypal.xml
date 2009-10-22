@@ -3,7 +3,7 @@
   <label>PayPal</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>Add a PayPal button to your wiki.</description>
-	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Paypal</uri.help>
+	<uri.help>http://developer.mindtouch.com/App_Catalog/Paypal</uri.help>
 	<uri.logo>http://scripts.mindtouch.com/logos/paypal-logo.gif</uri.logo> 
 	<namespace>paypal</namespace>
 

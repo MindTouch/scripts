@@ -3,7 +3,7 @@
   <label>Scratch</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding Scratch applications.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Scratch</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Scratch</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/scratch-logo.png</uri.logo>
 
   <function>

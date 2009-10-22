@@ -3,7 +3,7 @@
 	<label>Gravatar</label>
 	<copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
 	<description>This extension allows embedding of Gravatar images.</description>
-	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Gravatar</uri.help>
+	<uri.help>http://developer.mindtouch.com/App_Catalog/Gravatar</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/gravatar-logo.png</uri.logo>
 
   <requires host="MindTouch Core 8.05.2" />

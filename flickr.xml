@@ -3,7 +3,7 @@
   <label>Flickr</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding tagged pictures from Flickr.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Flickr</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Flickr</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/flickr-logo.png</uri.logo>
   <namespace>flickr</namespace>
   

@@ -2,7 +2,7 @@
 	<title>Advanced Search Extension</title>
 	<label>Advanced Search</label>
 	<description>This extension contains functions for adding advanced search functionality.</description>
-	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Advanced_Search</uri.help>
+	<uri.help>http://developer.mindtouch.com/App_Catalog/Advanced_Search</uri.help>
 	<namespace>advancedSearch</namespace>
 	
 	<function>

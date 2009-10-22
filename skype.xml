@@ -3,7 +3,7 @@
   <label>Skype</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension allows you to embed Skype action buttons.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Skype</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Skype</uri.help>
   <namespace>skype</namespace>
 
   <requires host="MindTouch Core 1.9.0b" />

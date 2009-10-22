@@ -3,7 +3,7 @@
   <label>Syntax</label>
   <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for highlighting syntax of popular programming languages.</description>
-  <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Syntax_Highlighter_2.0</uri.help>
+  <uri.help>http://developer.mindtouch.com/App_Catalog/Syntax_Highlighter_2.0</uri.help>
   <namespace>syntax</namespace>
 
   <requires host="MindTouch Core 9.02" />
