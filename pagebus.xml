@@ -1,6 +1,6 @@
 <extension>
   <title>MindTouch PageBus Extension</title>
-  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/PageBus</uri.help>
   <label>PageBus</label>
   <namespace>pagebus</namespace>

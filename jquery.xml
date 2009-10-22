@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>jQuery Extension</title>
   <label>jQuery</label>
-  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>Include jQuery plug-ins.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/jQuery</uri.help>
   <namespace>jquery</namespace>

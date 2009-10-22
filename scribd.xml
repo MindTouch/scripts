@@ -1,7 +1,7 @@
 <extension>
 	<title>Scribd Extension</title>
 	<label>Scribd</label>
-	<copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+	<copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
 	<description>This extension allows to view Adobe PDF, Microsoft Office, RTF, and Postscript documents in your wiki.</description>
 	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Scribd</uri.help>
 	<uri.logo>http://scripts.mindtouch.com/logos/scribd-logo.png</uri.logo>

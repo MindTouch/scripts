@@ -1,7 +1,7 @@
 <extension>
   <title>Twitter Extension</title>
   <label>Twitter</label>
-  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension contains functions for embedding Twitter feeds.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/Twitter</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/twitter-logo.png</uri.logo>

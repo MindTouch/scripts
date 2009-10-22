@@ -1,7 +1,7 @@
 ﻿<extension>
   <title>MindTouch AJAX API Extension</title>
   <label>MindTouch API</label>
-  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>Include AJAX API extension.</description>
 
   <requires host="MindTouch Core 9.02" />

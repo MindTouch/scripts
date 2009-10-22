@@ -1,7 +1,7 @@
 <extension>
   <title>AddThis Extension</title>
   <label>AddThis</label>
-  <copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+  <copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
   <description>This extension allows you to add AddThis social bookmarking widgets to your wiki.</description>
   <uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/AddThis</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/addthis-logo.png</uri.logo>

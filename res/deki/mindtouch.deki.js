@@ -1,6 +1,6 @@
 /*
  * MindTouch Core - open source enterprise collaborative networking
- * Copyright © 2006-2009 MindTouch, Inc.
+ * Copyright (c) 2006-2009 MindTouch Inc.
  * www.mindtouch.com  oss@mindtouch.com
  *
  * For community documentation and downloads visit www.opengarden.org;

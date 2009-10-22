@@ -1,7 +1,7 @@
 <extension>
 	<title>FlowPlayer Extension</title>
 	<label>FlowPlayer</label>
-	<copyright>Copyright (c) 2006-2009 MindTouch, Inc.</copyright>
+	<copyright>Copyright (c) 2006-2009 MindTouch Inc.</copyright>
 	<description>This extension allows to view FLV media in your wiki.</description>
 	<uri.help>http://wiki.developer.mindtouch.com/MindTouch_Deki/Extensions/FlowPlayer</uri.help>
   <uri.logo>http://scripts.mindtouch.com/logos/flowplayer-logo.png</uri.logo>
