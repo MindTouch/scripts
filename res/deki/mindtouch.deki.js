@@ -72,7 +72,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 		
 			// make GET request to fetch page contents
 			var _this = this;
-			MindTouch.Web.Post(page_api, contents, 'text/plain', null, function(xhr) {
+			MindTouch.Web.Post(page_api, contents, 'text/plain; charset=utf-8', null, function(xhr) {
 				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { xhr: xhr });
 				} else if(error) {
@@ -137,7 +137,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			
 			// make POST request to create property
 			var _this = this;
-			MindTouch.Web.Post(properties_api, value, 'text/plain', { Slug: name }, function(xhr) {
+			MindTouch.Web.Post(properties_api, value, 'text/plain; charset=utf-8', { Slug: name }, function(xhr) {
 				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { etag: MindTouch.Web.GetETag(xhr), xhr: xhr });
 				} else if(error) {
@@ -212,7 +212,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 
 		UpdateProperty: function(property_api, value, etag, success /* fn({ xhr }) */, error /* fn({ status, text, xhr }) */ ) {
 			var _this = this;		
-			MindTouch.Web.Put(property_api, value, 'text/plain', { ETag: etag }, function(xhr) {
+			MindTouch.Web.Put(property_api, value, 'text/plain; charset=utf-8', { ETag: etag }, function(xhr) {
 				if(MindTouch.Web.IsSuccessful(xhr)) {
 					_this.CallOrPublish(success, { xhr: xhr })
 				} else if(error) {
@@ -275,7 +275,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 				type: 'POST',
 				url: Deki.Env.PageApi + '/message/' + subchannel,
 				data: data,
-				contentType: 'text/plain;',
+				contentType: 'text/plain; charset=utf-8',
 				success: success
 			});
 		},
