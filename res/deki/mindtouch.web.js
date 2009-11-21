@@ -35,7 +35,7 @@ if(typeof MindTouch == 'undefined') {
 //--- Define MindTouch.Web Namespace ---
 if(typeof MindTouch.Web == 'undefined') {
 	MindTouch.Web = {
-		Version: { major: 0, minor: 1 }
+		Version: { major: 0, minor: 2 }
 	};
 }
 
@@ -217,4 +217,56 @@ if(typeof MindTouch.Web.GetStatusText == 'undefined') {
 		}
 		return '(Unknown)';
 	};
+}
+
+//--- Define MindTouch.Text Namespace ---
+if(typeof MindTouch.Text == 'undefined') {
+	MindTouch.Text = { }
+}
+
+if(typeof MindTouch.Text.Utf8Encode == 'undefined') {
+	MindTouch.Text.Utf8Encode = function(string) {
+		var utftext = "";
+		for(var n = 0; n < string.length; n++) {
+			var c = string.charCodeAt(n);
+			if(c < 128) {
+				utftext += String.fromCharCode(c);
+			} else if((c > 127) && (c < 2048)) {
+				utftext += String.fromCharCode((c >> 6) | 192);
+				utftext += String.fromCharCode((c & 63) | 128);
+			} else {
+				utftext += String.fromCharCode((c >> 12) | 224);
+				utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+ 
+		}
+		return utftext;
+	}
+}
+
+if(typeof MindTouch.Text.Utf8Decode == 'undefined') {
+	MindTouch.Text.Utf8Decode = function(utftext) {
+		var string = "";
+		var i = 0;
+		var c = c1 = c2 = 0;
+		while(i < utftext.length) {
+			c = utftext.charCodeAt(i);
+			if (c < 128) {
+				string += String.fromCharCode(c);
+				i++;
+			} else if((c > 191) && (c < 224)) {
+				c2 = utftext.charCodeAt(i+1);
+				string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+				i += 2;
+			} else {
+				c2 = utftext.charCodeAt(i+1);
+				c3 = utftext.charCodeAt(i+2);
+				string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+				i += 3;
+			}
+ 
+		}
+		return string;
+	}
 }

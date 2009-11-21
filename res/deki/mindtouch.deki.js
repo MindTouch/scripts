@@ -158,7 +158,7 @@ if(typeof MindTouch.Deki == 'undefined') {
 			
 			// make GET request to query properties
 			var _this = this;
-			MindTouch.Web.Get(properties_api + '?dream.out.format=json&names=' + Deki.url.encode(name), null, function(xhr) {
+			MindTouch.Web.Get(properties_api + '?dream.out.format=json&names=' + Deki.url.encode(MindTouch.Text.Utf8Encode(name)), null, function(xhr) {
 			
 				// check response status code
 				if(MindTouch.Web.IsSuccessful(xhr)) {
