@@ -22,7 +22,22 @@
     </return>
   </function>
 
-  <function>
+	<function>
+		<name>log</name>
+		<description>Log messages on a channel in debug console.</description>
+		<param name="subscribe" type="str" optional="true">Subscribe to channel. (default: "*")</param>
+		<return>
+			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
+				<head>
+					<script type="text/javascript">
+						DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { console.log('channel [%s] => %o', c, m); });
+					</script>
+				</head>
+			</html>
+		</return>
+	</function>
+
+	<function>
     <name>republish</name>
     <description>Republish messages to another channel.</description>
     <param name="subscribe" type="str">Subscribe to channel.</param>
