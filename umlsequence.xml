@@ -14,15 +14,13 @@
 		<param name="style" type="str" optional="true">style for UML sequence diagram (one of 'default', 'earth', 'modern-blue', 'mscgen', 'omegapple', 'qsd', 'rose', 'roundgreen', or 'napkin'; default: 'default')</param>
 		<return>
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
-        <head>
-          <script type="text/javascript" src="http://www.websequencediagrams.com/service.js" />
-        </head>
         <body>
           <div class="wsd" eval:wsd_style="$style ?? 'default'">
             <pre><eval:expr value="$code"/></pre>
           </div>
-        </body>
-      </html>
+					<script type="text/javascript" src="http://www.websequencediagrams.com/service.js" />
+				</body>
+			</html>
     </return>
   </function>
 </extension>
