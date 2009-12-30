@@ -30,7 +30,7 @@
 			<html xmlns:eval="http://mindtouch.com/2007/dekiscript">
 				<head>
 					<script type="text/javascript">
-						DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { console.log('channel [%s] => %o', c, m); });
+						DekiWiki.subscribe(<eval:js>args.subscribe ?? '*'</eval:js>, null, function(c, m, d) { if(typeof console != 'undefined') console.log('channel [%s] => %o', c, m); });
 					</script>
 				</head>
 			</html>
