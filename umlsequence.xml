@@ -16,7 +16,7 @@
       <html xmlns:eval="http://mindtouch.com/2007/dekiscript">
         <body>
           <div class="wsd" eval:wsd_style="$style ?? 'default'">
-            <pre><eval:expr value="$code"/></pre>
+            <pre><eval:expr value="$diagram"/></pre>
           </div>
 					<script type="text/javascript" src="http://www.websequencediagrams.com/service.js" />
 				</body>
